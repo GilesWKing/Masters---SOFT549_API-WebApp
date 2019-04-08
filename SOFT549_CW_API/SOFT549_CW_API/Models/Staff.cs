@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*-----------------------------------------------------------------------------------------------------------*
+ *-             Created by: ***** ******* ****                                                              -*
+ *-                Made on: 08/04/2019 - Original API built.                                                -*
+ *-                                                                                                         -*
+ *-             Descripton: The Staff model is the temporary store for the data from the Staff table.       -* 
+ *-----------------------------------------------------------------------------------------------------------*/
+
+using System;
 using System.Collections.Generic;
 
 namespace SOFT549_CW_API.Models

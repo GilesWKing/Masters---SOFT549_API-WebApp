@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*-----------------------------------------------------------------------------------------------------------*
+ *-             Created by: ***** ******* ****                                                              -*
+ *-                Made on: 08/04/2019 - Original API built.                                                -*
+ *-                                                                                                         -*
+ *-             Descripton: Controller for the data held with the Role Table in the Database.               -*
+ *-----------------------------------------------------------------------------------------------------------*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;

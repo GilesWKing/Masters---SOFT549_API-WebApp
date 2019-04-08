@@ -1,4 +1,12 @@
-﻿using System;
+﻿/*-----------------------------------------------------------------------------------------------------------*
+ *-             Created by: ***** ******* ****                                                              -*
+ *-                Made on: 08/04/2019 - Original API built.                                                -*
+ *-                                                                                                         -*
+ *-             Descripton: The Context model is the schema for the entire database.                        -* 
+ *-                         It also contains the connection string to the remote database.                  -*
+ *-----------------------------------------------------------------------------------------------------------*/
+
+using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 

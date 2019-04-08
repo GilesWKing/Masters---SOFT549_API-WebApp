@@ -1,4 +1,12 @@
-﻿using System;
+﻿/*-----------------------------------------------------------------------------------------------------------*
+ *-             Created by: ***** ******* ****                                                              -*
+ *-                Made on: 08/04/2019 - Original API built.                                                -*
+ *-                                                                                                         -*
+ *-             Descripton: The Assignment model is the temporary store for the data from the Assignment    -* 
+ *-                         (Tasks) Table.                                                                  -*
+ *-----------------------------------------------------------------------------------------------------------*/
+
+using System;
 using System.Collections.Generic;
 
 namespace SOFT549_CW_API.Models

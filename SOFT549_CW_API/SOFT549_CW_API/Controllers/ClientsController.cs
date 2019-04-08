@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*-----------------------------------------------------------------------------------------------------------*
+ *-             Created by: ***** ******* ****                                                              -*
+ *-                Made on: 08/04/2019 - Original API built.                                                -*
+ *-                                                                                                         -*
+ *-             Descripton: Controller for the data held with the Client Table in the Database.             -*
+ *-----------------------------------------------------------------------------------------------------------*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -45,6 +52,29 @@ namespace SOFT549_CW_API.Controllers
 
             return Ok(client);
         }
+
+        //----------------------------------------YYYYYYYYY-----------------------------------------------//
+        // Create functionality for API to forward individual attributes.
+        // (1) returns a clients name;
+        // (2) returns a clients contact details;
+
+        // (1)
+        [HttpGet("{id}/name")]
+        public async Task<IActionResult> GetClientsName([FromRoute] short id)
+        {
+            var client = await _context.Client.FindAsync(id);
+            return Ok(client.GetClientsName());
+        }
+        
+        // (2)
+        [HttpGet("{id}/contact")]
+        public async Task<IActionResult> GetClientsContact([FromRoute] short id)
+        {
+            var client = await _context.Client.FindAsync(id);
+            return Ok(client.GetClientsContact());
+        }
+        //----------------------------------------^^^^^^^^^-----------------------------------------------//
+
 
         // PUT: api/Clients/5
         [HttpPut("{id}")]
