@@ -53,7 +53,8 @@ namespace SOFT549_CW_API.Controllers
             return Ok(client);
         }
 
-        //----------------------------------------YYYYYYYYY-----------------------------------------------//
+        //-----------------------------------------------YYYYYYYYY-----------------------------------------------//
+
         // Create functionality for API to forward individual attributes.
         // (1) returns a clients name;
         // (2) returns a clients contact details;
@@ -73,7 +74,8 @@ namespace SOFT549_CW_API.Controllers
             var client = await _context.Client.FindAsync(id);
             return Ok(client.GetClientsContact());
         }
-        //----------------------------------------^^^^^^^^^-----------------------------------------------//
+
+        //-----------------------------------------------^^^^^^^^^-----------------------------------------------//
 
 
         // PUT: api/Clients/5
