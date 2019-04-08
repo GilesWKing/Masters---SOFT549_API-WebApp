@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace Soft549_CW_API
+namespace SOFT549_CW_API
 {
     public class Program
     {

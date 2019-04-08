@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Soft549_CW_API.Controllers
+namespace SOFT549_CW_API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

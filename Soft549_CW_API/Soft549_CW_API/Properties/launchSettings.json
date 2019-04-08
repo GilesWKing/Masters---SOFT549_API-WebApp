@@ -4,8 +4,8 @@
     "windowsAuthentication": false, 
     "anonymousAuthentication": true, 
     "iisExpress": {
-      "applicationUrl": "http://localhost:10469",
-      "sslPort": 44349
+      "applicationUrl": "http://localhost:2218",
+      "sslPort": 44394
     }
   },
   "profiles": {
@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "Soft549_CW_API": {
+    "SOFT549_CW_API": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "api/values",

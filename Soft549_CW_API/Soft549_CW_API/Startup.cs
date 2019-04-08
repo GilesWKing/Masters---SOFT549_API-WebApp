@@ -10,10 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using Microsoft.EntityFrameworkCore;
-using Soft549_CW_API.Models;
 
-namespace Soft549_CW_API
+namespace SOFT549_CW_API
 {
     public class Startup
     {
@@ -28,8 +26,6 @@ namespace Soft549_CW_API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            services.AddDbContext<GilesContext>(opt =>
-             opt.UseSqlServer("@Server=socem1.uopnet.plymouth.ac.uk; Database=Giles; User ID=Giles; Password=10147671"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

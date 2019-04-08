@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.438
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soft549_CW_API", "Soft549_CW_API\Soft549_CW_API.csproj", "{D5EB16A0-BD32-4EDF-894A-826F9A6F80DA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOFT549_CW_API", "SOFT549_CW_API\SOFT549_CW_API.csproj", "{3EED92A3-C285-4D90-BD77-E3ED5D13478A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D5EB16A0-BD32-4EDF-894A-826F9A6F80DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D5EB16A0-BD32-4EDF-894A-826F9A6F80DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D5EB16A0-BD32-4EDF-894A-826F9A6F80DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D5EB16A0-BD32-4EDF-894A-826F9A6F80DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EED92A3-C285-4D90-BD77-E3ED5D13478A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EED92A3-C285-4D90-BD77-E3ED5D13478A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EED92A3-C285-4D90-BD77-E3ED5D13478A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EED92A3-C285-4D90-BD77-E3ED5D13478A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {E4452CA5-9972-4699-8477-BFB8FFBB2A42}
+		SolutionGuid = {D79E1222-3187-40DD-86E5-577E7A20E423}
 	EndGlobalSection
 EndGlobal
