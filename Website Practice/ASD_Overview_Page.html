@@ -14,15 +14,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+ 
 
 
     <!-- Open Navbar HTML and CSS code for System navigation. -->
@@ -60,47 +57,38 @@
 
             <!-- sidebar title -->
             <div class="sidebar-header">
-                <h3>Project Navigation</h3>
+                <h3>Management Information system</h3>
             </div>
-
             <ul class="list-unstyled components">
-                <p>Dummy Heading</p>
-                <li class="active">
-                    <a href="#homeSubmenu" data--toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a href="#">Home1</a>
-                        </li>
-                        <li>
-                            <a href="#">Home2</a>
-                        </li>
-                        <li>
-                            <a href="#">Home3</a>
-                        </li>
-                    </ul>
-                </li>
+                <p>Project Navigation</p>
                 <li>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         <li>
-                            <a href="#">Page 1</a>
+                            <a href="#">Projects</a>
                         </li>
                         <li>
-                            <a href="#">Page 2</a>
+                            <a href="#">Activities</a>
                         </li>
                         <li>
-                            <a href="#">Page 3</a>
+                            <a href="#">Tasks</a>
+                        </li>
+                        <li>
+                            <a href="#">Staff</a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#">Contact</a>
+                    <a href="#">Help</a>
                 </li>
                 <li>
-                    <a href="#">About</a>
+                    <a href="#">Contact</a>
                 </li>
             </ul>
-            <ul>
+            <ul class="list-unstyled components">
+                <li>
+                    <a href="#">Home</a>
+                </li>
                 <li>
                     <a href="#">Logout</a>
                 </li>
@@ -152,15 +140,14 @@
 
 
     <style>
-        @import "https://fonts.googleapis.com/css?gamily=Poppins:300,400,500,600,700";
 
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Trebuchet MS', sans-serif;
             background: #fafafa;
         }
 
         p{
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Trebuchet MS', sans-serif;
             font-size:1.1em;
             font-weight:300;
             line-height:1.7em;
@@ -174,25 +161,24 @@
         }
 
         #sidebar{
-            background: #7386D5;
+            background: #676768;
             color: #fff;
-            transition: all 0.3s;
         }
 
-        #sidebar .sidebar-header{
-            padding:20px;
-            background:#6d7fcc;
-        }
+            #sidebar .sidebar-header {
+                padding: 0px;
+                background: #000000;
+            }
 
-        #sidebar ul.components{
-            padding:20px 0;
-            border-bottom: 1px solid #47748b;
-        }
+            #sidebar ul p {
+                color: #fff;
+                border-bottom: 1px solid #000000;
+            }
 
-        #sidebar ul p{
-            color: #fff;
-            border-bottom: 1px solid #47748b;
-        }
+            #sidebar ul.components {
+                padding: 20px 0;
+                border-bottom: 1px solid #161616;
+            }
 
         #sidebar ul p {
                 color: #fff;
@@ -205,20 +191,20 @@
                 display: block;
         }
 
-        #sidebar ul li a:hover {
-                    color: #7386D5;
-                    background: #fff;
-        }
+            #sidebar ul li a:hover {
+                color: #161616;
+                background: #DD1C25;
+            }
 
-        #sidebar ul li.active > a, a[aria-expanded="true"] {
+            #sidebar ul li.active > a, a[aria-expanded="true"] {
                 color: #fff;
-                background: #6d7fcc;
-        }
+                background: #161616;
+            }
 
         ul ul a {
             font-size: 0.9em !important;
             padding-left: 30px !important;
-            background: #6d7fcc;
+            background: #161616;
         }
     </style>
 
