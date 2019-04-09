@@ -9,82 +9,129 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <style type="text/css">
-        .login-form {
-            width: 340px;
-            margin: 50px auto;
-        }
-
-            .login-form form {
-                margin-bottom: 15px;
-                background: #f7f7f7;
-                box-shadow: 0px 2px 2px rgba(0,0,0,0.3);
-                padding: 30px;
-            }
-
-            .login-form h2 {
-                margin: 0 0 15px;
-            }
-
-        .form-control, .btn {
-            min-height: 38px;
-            border-radius: 2px;
-        }
-
-        .btn {
-            font-size: 15px;
-            font-weight: bold;
-        }
-    </style>
 </head>
 
 <body>
 
     <!-- Open Navbar HTML and CSS code. -->
-    <!-- Navbar custom is used to define the same colour as the background of the ASD Logo. -->
+
     <nav class="navbar navbar-custom navbar-fixed-top">
+        <!-- Navbar custom is used to define the same colour as the background of the ASD Logo. -->
         <style CSS>
             .navbar-custom {
                 background-color: rgba(22,22,22,1)
             }
         </style>
 
-        <!-- Insert thumbnail image on Navbar, aligned to the left with float css code. -->
+        <!-- Thumbnail image on Navbar, aligned to the left with float css code. -->
         <style>
             .thumbnail {
                 float: left;
-                margin: 0px 0px 0px 0px;
+                margin: 2px 0px 2px 2px;
                 background: transparent;
-                border-radius: 0px;
+                border: 0 none;
                 box-shadow: none;
             }
         </style>
 
-        <!-- Image used (ASD3_login_logo.png) should be in root folder of webpage! -->
+        <!-- Image used (ASD3_header_logo.png) should be in root folder of webpage! -->
         <div class="thumbnail" border="0">
-            <img src="ASD3_login_logo.png" alt="Active Software Development" width=277 height=76 />
+            <img src="ASD3_header_logo.png" alt="Active Software Development" width=277 height=76 />
         </div>
     </nav>
 
     <!-- Open login forms. -->
 
-    <div class="login-form">
-        <form action="/example/actions/confirmation.php" method="post">
-            <h2 class="text-center">Log in</h2>
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Username"
-                       required="required" />
-            </div>
-            <div class="form-group">
-                <input type="password" class="form-control" placeholder="Password"
-                       required="required" />
-            </div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-block">
-                    Login
-                </button>
-            </div>
-        </form>
+    <div id="form-wrapper" style="text-align:center; vertical-align:middle">
+        <div class="login-form">
+            <form action="/example/actions/confirmation.php" method="post">
+
+                <style type="text/css">
+
+                    html, body {
+                        height: 100%;
+                    }
+
+                    div#form-wrapper {
+                        position: absolute;
+                        top: 25%;
+                        right: 0;
+                        left: 0;
+                    }
+
+                    .login-form {
+                        width: 340px;
+                        margin: 50px auto;
+                    }
+
+                        .login-form form {
+                            margin-bottom: 15px;
+                            background: #f7f7f7;
+                            box-shadow: 0px 0px 3px rgba(0,0,0,0.3);
+                            padding: 30px;
+                        }
+
+                        .login-form h2 {
+                            margin: 0 0 15px;
+                        }
+
+                    .form-control, .btn {
+                        min-height: 38px;
+                        border-radius: 2px;
+                    }
+
+                    .btn {
+                        font-size: 15px;
+                        font-weight: bold;
+                    }
+                </style>
+
+                <h2 class="text-center">Log in</h2>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Username"
+                           required="required" />
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Password"
+                           required="required" />
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block">
+                        Login
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
+
+    <div class="MIS_footer">
+                 <style>
+                        .MIS_footer {
+                            position: fixed;
+                            left: 0;
+                            bottom: 0;
+                            width: 100%;
+                            background-color: rgba(6, 24, 84, 1);
+                        }
+                 </style>
+
+                 <style>
+                        .thumbnail_footer {
+                            float: right;
+                            margin: 10px 10px 10px 0px;
+                            background: transparent;
+                            border: 0 none;
+                            box-shadow: none;
+                        }
+                 </style>
+
+    <!-- Image used (PND_footer_logo.png) should be in root folder of webpage! -->
+                        <div class="thumbnail_footer" border="0">
+                    <img src="PND_footer_logo.png" alt="Pilgrim Ninja Development" width=76 height=78 />
+                </div>
+            </div>
+
 </body>
-</html>
+
+    </html>
+
