@@ -9,208 +9,225 @@
 
     <title>ASD MIS Projects</title>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Java -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <!-- Set CSS for background images -->
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
+
+        .bg {
+            background: url("Red_polygon.jpg");
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+    </style>
 
 </head>
 
 <body>
-
-
-
-
-    <!-- Open Navbar HTML and CSS code for System navigation. -->
-
-    <nav class="navbar navbar-custom navbar-fixed-top">
+        <!-- OPEN NAVBAR -->
         <!-- Navbar custom is used to define the same colour as the background of the ASD Logo. -->
-        <style CSS>
-            .navbar-custom {
-                background-color: rgba(22,22,22,1)
-            }
-        </style>
+        <nav class="navbar navbar-custom navbar-fixed-top">
 
-        <!-- Thumbnail image on Navbar, aligned to the left with float css code. -->
-        <style>
-            .thumbnail {
-                float: left;
-                margin: 2px 0px 2px 2px;
-                background: transparent;
-                border: 0 none;
-                box-shadow: none;
-            }
-        </style>
+            <style CSS>
+                .navbar-custom {
+                    background-color: rgba(22,22,22,1)
+                }
+            </style>
 
-        <!-- Image used (ASD_header_logo.png) should be in root folder of webpage! -->
-        <div class="thumbnail" border="0">
-            <img src="ASD_header_logo.png" alt="Active Software Development" width=277 height=76 />
-        </div>
-    </nav>
+            <!-- Thumbnail image on Navbar, aligned to the left with float css code. -->
+            <style>
+                .thumbnail {
+                    float: left;
+                    margin: 2px 0px 2px 2px;
+                    background: transparent;
+                    border: 0 none;
+                    box-shadow: none;
+                }
+            </style>
 
-    <!--- Open sidebar HTML and CSS code for Project navigation-->
-
-    <div class="wrapper">
-
-        <nav id="sidebar">
-
-            <!-- sidebar title -->
-            <div class="sidebar-header">
-                <h3>Management Information system</h3>
+            <!-- Logo used in Navbar (ASD_header_logo.png) should be in root folder of webpage! -->
+            <div class="thumbnail" border="0">
+                <img src="ASD_header_logo.png" alt="Active Software Development" width=277 height=76 />
             </div>
-            <ul class="list-unstyled components">
-                <p>Project Navigation</p>
-                <li>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
-                    <ul class="collapse list-unstyled" id="pageSubmenu">
-                        <li>
-                            <a href="#">Projects</a>
-                        </li>
-                        <li>
-                            <a href="#">Activities</a>
-                        </li>
-                        <li>
-                            <a href="#">Tasks</a>
-                        </li>
-                        <li>
-                            <a href="#">Staff</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Help</a>
-                </li>
-                <li>
-                    <a href="#">Contact</a>
-                </li>
-            </ul>
-            <ul class="list-unstyled components">
-                <li>
-                    <a href="#">Home</a>
-                </li>
-                <li>
-                    <a href="#">Logout</a>
-                </li>
-            </ul>
         </nav>
-    </div>
+        <!-- CLOSE NAVBAR -->
+        <!-- OPEN SIDEBAR COMPONENTS -->
+        <!--- HTML and CSS code for Project navigation-->
+        <div class="bg">
+
+            <div class="wrapper">
+
+                <!-- open background image before wrapper and close after to keep image behind sidebar -->
+            </div>
+            <nav id="sidebar">
+
+                <!-- Sidebar components -->
+
+                <ul class="list-unstyled components">
+                    <p><center><h4>Management Information System</h4></center></p>
+                    <li>
+                        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Project nav</a>
+                        <ul class="collapse list-unstyled" id="pageSubmenu">
+                            <li>
+                                <a href="#">Projects</a>
+                            </li>
+                            <li>
+                                <a href="#">Activities</a>
+                            </li>
+                            <li>
+                                <a href="#">Tasks</a>
+                            </li>
+                            <li>
+                                <a href="#">Staff</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Help</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact</a>
+                    </li>
+                </ul>
+                <ul class="list-unstyled components">
+                    <li>
+                        <a href="#">Home</a>
+                    </li>
+                    <li>
+                        <a href="#">Logout</a>
+                    </li>
+                </ul>
+            </nav>
 
 
-    <style>
-        .body {
-            background-image: url("Red_tiles.jpg");
-        }
 
-        .wrapper {
-            display: flex;
-            width: 100%;
-            align-items: stretch;
-        }
-
-        #sidebar {
-            min-width: 250px;
-            max-width: 250px;
-            min-height: 100vh;
-        }
-
-            #sidebar.active {
-                margin-left: -250px;
+        </div>
+        <!-- CLOSE SIDEBAR COMPONENTS-->
+        <!-- OPEN SIDEBAR CSS STYLING -->
+        <style>
+            .body {
+                background-image: url("Red_tiles.jpg");
             }
 
-        a[data-toggle="collapse"] {
-            position: relative;
-        }
+            .wrapper {
+                display: flex;
+                width: 100%;
+                align-items: stretch;
+            }
 
-        .dropdown-toggle::after {
-            display: block;
-            position: absolute;
-            top: 50%;
-            right: 20px;
-            transform: translateY(-50%);
-        }
-    </style>
-    <style>
-        @media (max-width:768px) {
             #sidebar {
-                margin-left: -250px;
+                min-width: 250px;
+                max-width: 250px;
+                min-height: 100vh;
             }
 
                 #sidebar.active {
-                    margin-left: 0;
+                    margin-left: -250px;
                 }
-        }
-    </style>
 
-
-    <style>
-
-        body {
-            font-family: 'Trebuchet MS', sans-serif;
-            background: #fafafa;
-        }
-
-        p {
-            font-family: 'Trebuchet MS', sans-serif;
-            font-size: 1.1em;
-            font-weight: 300;
-            line-height: 1.7em;
-            color: #999:
-        }
-
-        a, a:hover, a:focus {
-            color: inherit;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-
-        #sidebar {
-            background: #676768;
-            color: #fff;
-        }
-
-            #sidebar .sidebar-header {
-                padding: 0px;
-                background: #000000;
+            a[data-toggle="collapse"] {
+                position: relative;
             }
 
-            #sidebar ul p {
-                color: #fff;
-                border-bottom: 1px solid #000000;
-            }
-
-            #sidebar ul.components {
-                padding: 20px 0;
-                border-bottom: 1px solid #161616;
-            }
-
-            #sidebar ul p {
-                color: #fff;
-                padding: 10px;
-            }
-
-            #sidebar ul li a {
-                padding: 10px;
-                font-size: 1.1em;
+            .dropdown-toggle::after {
                 display: block;
+                position: absolute;
+                top: 50%;
+                right: 20px;
+                transform: translateY(-50%);
             }
 
-                #sidebar ul li a:hover {
-                    color: #161616;
-                    background: #DD1C25;
+            @media (max-width:768px) {
+                #sidebar {
+                    margin-left: -250px;
                 }
 
-            #sidebar ul li.active > a, a[aria-expanded="true"] {
+                    #sidebar.active {
+                        margin-left: 0;
+                    }
+            }
+
+            body {
+                background: #fafafa;
+            }
+
+            p {
+                font-size: 1.1em;
+                font-weight: 300;
+                line-height: 1.7em;
+                color: #999;
+            }
+
+            a, a:hover, a:focus {
+                color: inherit;
+                text-decoration: none;
+                transition: all 0.3s;
+            }
+
+            #sidebar {
+                background: #676768;
                 color: #fff;
+            }
+
+                #sidebar .sidebar-header {
+                    padding: 0px;
+                    background: #000000;
+                }
+
+                #sidebar ul p {
+                    color: #fff;
+                    border-bottom: 1px solid #000000;
+                }
+
+                #sidebar ul.components {
+                    padding: 20px 0;
+                    border-bottom: 1px solid #161616;
+                }
+
+                #sidebar ul p {
+                    color: #fff;
+                    padding: 10px;
+                }
+
+                #sidebar ul li a {
+                    padding: 10px;
+                    font-size: 1.1em;
+                    display: block;
+                }
+
+                    #sidebar ul li a:hover {
+                        color: #161616;
+                        background: #ffffff; /*DD1C25*/
+                        font-weight:600;
+                    }
+
+                #sidebar ul li.active > a, a[aria-expanded="true"] {
+                    color: #fff;
+                    background: #161616;
+                }
+
+            ul ul a {
+                font-size: 0.9em !important;
+                padding-left: 30px !important;
                 background: #161616;
             }
-
-        ul ul a {
-            font-size: 0.9em !important;
-            padding-left: 30px !important;
-            background: #161616;
-        }
-    </style>
+        </style>
+        <!-- CLOSE SIDEBAR CSS STYLING -->
 
 </body>
-</html>
+
+    </html>
