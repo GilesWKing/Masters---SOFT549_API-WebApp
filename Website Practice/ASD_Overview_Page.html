@@ -23,6 +23,7 @@
         body, html {
             height: 100%;
             margin: 0;
+            background: #161616;
         }
 
         .bg {
@@ -37,196 +38,201 @@
 
 </head>
 
-<body>
-        <!-- OPEN NAVBAR -->
-        <!-- Navbar custom is used to define the same colour as the background of the ASD Logo. -->
-        <nav class="navbar navbar-custom navbar-fixed-top">
+<body class="">
+    <!-- OPEN NAVBAR -->
+    <!-- Navbar custom is used to define the same colour as the background of the ASD Logo. -->
+    <nav class="navbar navbar-custom navbar-fixed-top">
 
-            <style CSS>
-                .navbar-custom {
-                    background-color: rgba(22,22,22,1)
-                }
-            </style>
+        <style CSS>
+            .navbar-custom {
+                background-color: rgba(22,22,22,1)
+            }
+        </style>
 
-            <!-- Thumbnail image on Navbar, aligned to the left with float css code. -->
-            <style>
-                .thumbnail {
-                    float: left;
-                    margin: 2px 0px 2px 2px;
-                    background: transparent;
-                    border: 0 none;
-                    box-shadow: none;
-                }
-            </style>
+        <!-- Thumbnail image on Navbar, aligned to the left with float css code. -->
+        <style>
+            .thumbnail {
+                float: left;
+                margin: 2px 0px 2px 2px;
+                background: transparent;
+                border: 0 none;
+                box-shadow: none;
+            }
+        </style>
 
-            <!-- Logo used in Navbar (ASD_header_logo.png) should be in root folder of webpage! -->
-            <div class="thumbnail" border="0">
-                <img src="ASD_header_logo.png" alt="Active Software Development" width=277 height=76 />
-            </div>
-        </nav>
-        <!-- CLOSE NAVBAR -->
-        <!-- OPEN SIDEBAR COMPONENTS -->
-        <!--- HTML and CSS code for Project navigation-->
-        <div class="bg">
-
-            <div class="wrapper">
-
-                <!-- open background image before wrapper and close after to keep image behind sidebar -->
-            </div>
-            <nav id="sidebar">
-
-                <!-- Sidebar components -->
-
-                <ul class="list-unstyled components">
-                    <p><center><h4>Management Information System</h4></center></p>
-                    <li>
-                        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Project nav</a>
-                        <ul class="collapse list-unstyled" id="pageSubmenu">
+        <!-- Logo used in Navbar (ASD_header_logo.png) should be in root folder of webpage! -->
+        <div class="thumbnail" border="0">
+            <img src="ASD_header_logo.png" alt="Active Software Development" width=277 height=76 />
+        </div>
+    </nav>
+    <!-- CLOSE NAVBAR -->
+    <!-- OPEN SIDEBAR COMPONENTS -->
+    <!--- HTML and CSS code for Project navigation-->
+    <div class="bg">
+        <div class="container-fluid">
+            <div class="row">
+                <div id="wrapper">
+                    <!--<div class="col-2">-->
+                    <nav id="sidebar">
+                        <ul class="list-unstyled components">
+                            <p>
+                                <center>
+                                    <h4>Management Information System</h4>
+                                </center>
+                            </p>
                             <li>
-                                <a href="#">Projects</a>
+                                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Project nav</a>
+                                <ul class="collapse list-unstyled" id="pageSubmenu">
+                                    <li>
+                                        <a href="#">Projects</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Activities</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Tasks</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Staff</a>
+                                    </li>
+                                </ul>
                             </li>
                             <li>
-                                <a href="#">Activities</a>
+                                <a href="#">Help</a>
                             </li>
                             <li>
-                                <a href="#">Tasks</a>
-                            </li>
-                            <li>
-                                <a href="#">Staff</a>
+                                <a href="#">Contact</a>
                             </li>
                         </ul>
-                    </li>
-                    <li>
-                        <a href="#">Help</a>
-                    </li>
-                    <li>
-                        <a href="#">Contact</a>
-                    </li>
-                </ul>
-                <ul class="list-unstyled components">
-                    <li>
-                        <a href="#">Home</a>
-                    </li>
-                    <li>
-                        <a href="#">Logout</a>
-                    </li>
-                </ul>
-            </nav>
-
-
-
+                        <ul class="list-unstyled components">
+                            <li>
+                                <a href="#">Home</a>
+                            </li>
+                            <li>
+                                <a href="#">Logout</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                    <div class="col-10">
+                        <form class="text-white">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Email address</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
+                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Password</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                            </div>
+                            <div class="form-group form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- CLOSE SIDEBAR COMPONENTS-->
-        <!-- OPEN SIDEBAR CSS STYLING -->
-        <style>
-            .body {
-                background-image: url("Red_tiles.jpg");
-            }
-
-            .wrapper {
-                display: flex;
-                width: 100%;
-                align-items: stretch;
-            }
-
-            #sidebar {
-                min-width: 250px;
-                max-width: 250px;
-                min-height: 100vh;
-            }
-
-                #sidebar.active {
-                    margin-left: -250px;
+            <!-- CLOSE SIDEBAR COMPONENTS-->
+            <!-- OPEN SIDEBAR CSS STYLING -->
+            <style>
+                .body {
+                    background-image: url("Red_tiles.jpg");
                 }
 
-            a[data-toggle="collapse"] {
-                position: relative;
-            }
+                .wrapper {
+                    display: flex;
+                    width: 100%;
+                    align-items: stretch;
+                    margin: 0 auto;
+                }
 
-            .dropdown-toggle::after {
-                display: block;
-                position: absolute;
-                top: 50%;
-                right: 20px;
-                transform: translateY(-50%);
-            }
-
-            @media (max-width:768px) {
                 #sidebar {
-                    margin-left: -250px;
+                    min-width: 250px;
+                    max-width: 250px;
+                    min-height: 100vh;
                 }
 
                     #sidebar.active {
-                        margin-left: 0;
+                        margin-left: 0 auto;
                     }
-            }
 
-            body {
-                background: #fafafa;
-            }
-
-            p {
-                font-size: 1.1em;
-                font-weight: 300;
-                line-height: 1.7em;
-                color: #999;
-            }
-
-            a, a:hover, a:focus {
-                color: inherit;
-                text-decoration: none;
-                transition: all 0.3s;
-            }
-
-            #sidebar {
-                background: #676768;
-                color: #fff;
-            }
-
-                #sidebar .sidebar-header {
-                    padding: 0px;
-                    background: #000000;
+                a[data-toggle="collapse"] {
+                    position: relative;
                 }
 
-                #sidebar ul p {
-                    color: #fff;
-                    border-bottom: 1px solid #000000;
-                }
-
-                #sidebar ul.components {
-                    padding: 20px 0;
-                    border-bottom: 1px solid #161616;
-                }
-
-                #sidebar ul p {
-                    color: #fff;
-                    padding: 10px;
-                }
-
-                #sidebar ul li a {
-                    padding: 10px;
-                    font-size: 1.1em;
+                .dropdown-toggle::after {
                     display: block;
+                    position: absolute;
+                    top: 50%;
+                    right: 20px;
+                    transform: translateY(-50%);
                 }
 
-                    #sidebar ul li a:hover {
-                        color: #161616;
-                        background: #ffffff; /*DD1C25*/
-                        font-weight:600;
+                p {
+                    font-size: 1.1em;
+                    font-weight: 300;
+                    line-height: 1.7em;
+                    color: #999;
+                }
+
+                a, a:hover, a:focus {
+                    color: inherit;
+                    text-decoration: none;
+                    transition: all 0.3s;
+                }
+
+                #sidebar {
+                    background: #676768;
+                    color: #fff;
+                }
+
+                    #sidebar .sidebar-header {
+                        padding: 0px;
+                        background: #000000;
                     }
 
-                #sidebar ul li.active > a, a[aria-expanded="true"] {
-                    color: #fff;
+                    #sidebar ul p {
+                        color: #fff;
+                        border-bottom: 1px solid #000000;
+                    }
+
+                    #sidebar ul.components {
+                        padding: 0px 0;
+                        border-bottom: 1px solid #161616;
+                    }
+
+                    #sidebar ul p {
+                        color: #fff;
+                        padding: 0px;
+                    }
+
+                    #sidebar ul li a {
+                        padding: 10px;
+                        font-size: 1.1em;
+                        display: block;
+                    }
+
+                        #sidebar ul li a:hover {
+                            color: #161616;
+                            background: #ffffff; /*DD1C25*/
+                            font-weight: 600;
+                        }
+
+                    #sidebar ul li.active > a, a[aria-expanded="true"] {
+                        color: #fff;
+                        background: #161616;
+                    }
+
+                ul ul a {
+                    font-size: 0.9em !important;
+                    padding-left: 30px !important;
                     background: #161616;
                 }
-
-            ul ul a {
-                font-size: 0.9em !important;
-                padding-left: 30px !important;
-                background: #161616;
-            }
-        </style>
-        <!-- CLOSE SIDEBAR CSS STYLING -->
+            </style>
+            <!-- CLOSE SIDEBAR CSS STYLING -->
 
 </body>
 
