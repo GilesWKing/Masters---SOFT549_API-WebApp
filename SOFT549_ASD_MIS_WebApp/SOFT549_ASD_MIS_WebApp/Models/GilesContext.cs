@@ -1,17 +1,8 @@
-﻿/*-----------------------------------------------------------------------------------------------------------*
- *-             Created by: ***** ******* ****                                                              -*
- *-                Made on: 08/04/2019 - Original API built.                                                -*
- *-                                                                                                         -*
- *-             Descripton: The Context model is the schema for the entire database.                        -* 
- *-                         It also contains the connection string to the remote database.                  -*
- *-----------------------------------------------------------------------------------------------------------*/
-
-using System;
+﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-using SOFT549_CW_API;
 
-namespace SOFT549_CW_API.Models
+namespace SOFT549_ASD_MIS_WebApp.Models
 {
     public partial class GilesContext : DbContext
     {
@@ -44,9 +35,7 @@ namespace SOFT549_CW_API.Models
         {
             modelBuilder.Entity<Activity>(entity =>
             {
-                entity.Property(e => e.ActivityId)
-                    .HasColumnName("activity_id")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.ActivityId).HasColumnName("activity_id");
 
                 entity.Property(e => e.ActivityName)
                     .IsRequired()
@@ -97,9 +86,7 @@ namespace SOFT549_CW_API.Models
             {
                 entity.HasKey(e => e.TaskId);
 
-                entity.Property(e => e.TaskId)
-                    .HasColumnName("task_id")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.TaskId).HasColumnName("task_id");
 
                 entity.Property(e => e.ActivityId).HasColumnName("activity_id");
 
@@ -148,9 +135,7 @@ namespace SOFT549_CW_API.Models
 
             modelBuilder.Entity<Client>(entity =>
             {
-                entity.Property(e => e.ClientId)
-                    .HasColumnName("client_id")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.ClientId).HasColumnName("client_id");
 
                 entity.Property(e => e.ClientContact)
                     .IsRequired()
@@ -167,9 +152,7 @@ namespace SOFT549_CW_API.Models
 
             modelBuilder.Entity<Project>(entity =>
             {
-                entity.Property(e => e.ProjectId)
-                    .HasColumnName("project_id")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.ProjectId).HasColumnName("project_id");
 
                 entity.Property(e => e.ActualCompletionDate)
                     .HasColumnName("actual_completion_date")
@@ -232,9 +215,7 @@ namespace SOFT549_CW_API.Models
 
             modelBuilder.Entity<Staff>(entity =>
             {
-                entity.Property(e => e.StaffId)
-                    .HasColumnName("staff_id")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.StaffId).HasColumnName("staff_id");
 
                 entity.Property(e => e.ContactDetails)
                     .HasColumnName("contact_details")

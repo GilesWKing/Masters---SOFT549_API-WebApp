@@ -1,0 +1,81 @@
+﻿@model SOFT549_ASD_MIS_WebApp.Models.Activity
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Activity</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ActivityName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ActivityName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PredictedStartDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PredictedStartDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ActualStartDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ActualStartDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PredictedCompletionDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PredictedCompletionDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ActualCompletionDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ActualCompletionDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PredictedCost)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PredictedCost)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ActualCost)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ActualCost)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ActivitySequence)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ActivitySequence)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Project)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Project.PredictedCost)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Staff)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Staff.Organisation)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ActivityId" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
