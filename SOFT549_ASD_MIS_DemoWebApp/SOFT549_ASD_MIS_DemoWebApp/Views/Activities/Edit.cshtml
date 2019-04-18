@@ -1,0 +1,79 @@
+﻿@model SOFT549_ASD_MIS_DemoWebApp.Models.Activity
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>Activity</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ActivityId" />
+            <div class="form-group">
+                <label asp-for="ProjectId" class="control-label"></label>
+                <select asp-for="ProjectId" class="form-control" asp-items="ViewBag.ProjectId"></select>
+                <span asp-validation-for="ProjectId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ActivityName" class="control-label"></label>
+                <input asp-for="ActivityName" class="form-control" />
+                <span asp-validation-for="ActivityName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StaffId" class="control-label"></label>
+                <select asp-for="StaffId" class="form-control" asp-items="ViewBag.StaffId"></select>
+                <span asp-validation-for="StaffId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PredictedStartDate" class="control-label"></label>
+                <input asp-for="PredictedStartDate" class="form-control" />
+                <span asp-validation-for="PredictedStartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ActualStartDate" class="control-label"></label>
+                <input asp-for="ActualStartDate" class="form-control" />
+                <span asp-validation-for="ActualStartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PredictedCompletionDate" class="control-label"></label>
+                <input asp-for="PredictedCompletionDate" class="form-control" />
+                <span asp-validation-for="PredictedCompletionDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ActualCompletionDate" class="control-label"></label>
+                <input asp-for="ActualCompletionDate" class="form-control" />
+                <span asp-validation-for="ActualCompletionDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PredictedCost" class="control-label"></label>
+                <input asp-for="PredictedCost" class="form-control" />
+                <span asp-validation-for="PredictedCost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ActualCost" class="control-label"></label>
+                <input asp-for="ActualCost" class="form-control" />
+                <span asp-validation-for="ActualCost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ActivitySequence" class="control-label"></label>
+                <input asp-for="ActivitySequence" class="form-control" />
+                <span asp-validation-for="ActivitySequence" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

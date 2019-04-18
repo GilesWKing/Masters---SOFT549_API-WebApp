@@ -1,0 +1,83 @@
+﻿@model IEnumerable<SOFT549_ASD_MIS_DemoWebApp.Models.Project>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProjectName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PredictedLaunchDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ActualLaunchDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PredictedCompletionDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ActualCompletionDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PredictedCost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ActualCost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Client)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjectName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PredictedLaunchDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ActualLaunchDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PredictedCompletionDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ActualCompletionDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PredictedCost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ActualCost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Client.ClientContact)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ProjectId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ProjectId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ProjectId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
