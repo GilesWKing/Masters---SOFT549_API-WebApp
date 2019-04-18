@@ -46,6 +46,23 @@ namespace SOFT549_ASD_MIS_API.Controllers
             return Ok(client);
         }
 
+        //-----------------------------Custom API Get Requests-----------------------------//
+        [HttpGet("{id}/name")]
+        public async Task<IActionResult> GetClientsName([FromRoute] int id)
+        {
+            var client = await _context.Client.FindAsync(id);
+            return Ok(client.GetClientsName());
+        }
+
+        [HttpGet("{id}/contact")]
+        public async Task<IActionResult> GetClientsContact([FromRoute] int id)
+        {
+            var client = await _context.Client.FindAsync(id);
+            return Ok(client.GetClientsContact());
+        }
+        //-----------------------------        Close         -----------------------------//
+
+
         // PUT: api/Clients/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutClient([FromRoute] int id, [FromBody] Client client)
@@ -59,6 +76,18 @@ namespace SOFT549_ASD_MIS_API.Controllers
             {
                 return BadRequest();
             }
+
+            //-----------------------------Custom error array: Clients-----------------------------//
+            List<string> errors = new List<string>();
+
+            // If the Client ID does not match the value found in the API PUT Request then generate error message.
+            if (id != client.ClientId)
+                errors.Add("The 'clientID' does not match the request.");
+
+            // If the number of errors is greater than 0 (i.e. 1 or above) then return the error to the array.
+            if (errors.Count > 0)
+                return BadRequest(_context.FormatBadRequest(errors));
+            //-----------------------------           Close           -----------------------------//
 
             _context.Entry(client).State = EntityState.Modified;
 

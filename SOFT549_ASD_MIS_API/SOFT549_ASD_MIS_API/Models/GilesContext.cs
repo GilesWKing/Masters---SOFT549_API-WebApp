@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using System.Collections.Generic;
 
 namespace SOFT549_ASD_MIS_API.Models
 {
@@ -31,13 +32,30 @@ namespace SOFT549_ASD_MIS_API.Models
             }
         }
 
+        //-----------------------------Custom error array-----------------------------//
+
+        public string FormatBadRequest(List<string> errors)
+
+        {
+            string errorMessage = "";
+            foreach (string error in errors)
+            {
+                if (errorMessage != "")
+                    string.Concat(errorMessage, System.Environment.NewLine);
+                string.Concat(errorMessage, error);
+            }
+            return errorMessage;
+        }
+        //-----------------------------       Close      -----------------------------//
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Activity>(entity =>
             {
                 entity.Property(e => e.ActivityId)
                     .HasColumnName("activity_id")
-                    .ValueGeneratedNever();
+                    //.ValueGeneratedNever();
+                    .ValueGeneratedOnAdd();     //This will help increment the database by 1 when adding primary key information.
 
                 entity.Property(e => e.ActivityName)
                     .IsRequired()
@@ -90,7 +108,8 @@ namespace SOFT549_ASD_MIS_API.Models
 
                 entity.Property(e => e.TaskId)
                     .HasColumnName("task_id")
-                    .ValueGeneratedNever();
+                    //.ValueGeneratedNever();
+                    .ValueGeneratedOnAdd();
 
                 entity.Property(e => e.ActivityId).HasColumnName("activity_id");
 
@@ -141,7 +160,8 @@ namespace SOFT549_ASD_MIS_API.Models
             {
                 entity.Property(e => e.ClientId)
                     .HasColumnName("client_id")
-                    .ValueGeneratedNever();
+                    //.ValueGeneratedNever();
+                    .ValueGeneratedOnAdd();
 
                 entity.Property(e => e.ClientContact)
                     .IsRequired()
@@ -160,7 +180,8 @@ namespace SOFT549_ASD_MIS_API.Models
             {
                 entity.Property(e => e.ProjectId)
                     .HasColumnName("project_id")
-                    .ValueGeneratedNever();
+                    //.ValueGeneratedNever();
+                    .ValueGeneratedOnAdd();
 
                 entity.Property(e => e.ActualCompletionDate)
                     .HasColumnName("actual_completion_date")
@@ -210,7 +231,8 @@ namespace SOFT549_ASD_MIS_API.Models
             {
                 entity.Property(e => e.RoleId)
                     .HasColumnName("role_id")
-                    .ValueGeneratedNever();
+                    //.ValueGeneratedNever();
+                    .ValueGeneratedOnAdd();
 
                 entity.Property(e => e.CostPerHour).HasColumnName("cost_per_hour");
 
@@ -225,7 +247,8 @@ namespace SOFT549_ASD_MIS_API.Models
             {
                 entity.Property(e => e.StaffId)
                     .HasColumnName("staff_id")
-                    .ValueGeneratedNever();
+                    //.ValueGeneratedNever();
+                    .ValueGeneratedOnAdd();
 
                 entity.Property(e => e.ClientId).HasColumnName("client_id");
 
