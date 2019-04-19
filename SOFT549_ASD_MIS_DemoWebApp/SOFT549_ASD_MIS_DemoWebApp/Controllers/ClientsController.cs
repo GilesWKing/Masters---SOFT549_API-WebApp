@@ -21,7 +21,9 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
         // GET: Clients
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Client.ToListAsync());
+            //return View(await _context.Client.ToListAsync());
+            
+            return View(await _context.GetAPICall<List<Client>>("Clients"));
         }
 
         // GET: Clients/Details/5
@@ -32,8 +34,10 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
                 return NotFound();
             }
 
-            var client = await _context.Client
-                .FirstOrDefaultAsync(m => m.ClientId == id);
+            //var client = await _context.Client.FirstOrDefaultAsync(m => m.ClientId == id);
+            
+            var client = await _context.GetAPICall<Client>(string.Concat("Clients", "/", id));
+
             if (client == null)
             {
                 return NotFound();
@@ -57,10 +61,14 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(client);
-                await _context.SaveChangesAsync();
+                //_context.Add(client);
+                //await _context.SaveChangesAsync();
+                
+                var result = await _context.PostAPICall<Client>("Clients", client);
+
                 return RedirectToAction(nameof(Index));
             }
+
             return View(client);
         }
 
@@ -72,11 +80,15 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
                 return NotFound();
             }
 
-            var client = await _context.Client.FindAsync(id);
+            //var client = await _context.Client.FindAsync(id);
+            
+            var client = await _context.GetAPICall<Client>(string.Concat("Clients", "/", id));
+
             if (client == null)
             {
                 return NotFound();
             }
+
             return View(client);
         }
 
@@ -94,24 +106,28 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
 
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _context.Update(client);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ClientExists(client.ClientId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
+                //try
+                //{
+                //    _context.Update(client);
+                //    await _context.SaveChangesAsync();
+                
+                    var result = await _context.PutAPICall<Client>(string.Concat("Clients", "/", id), client);
+                //}
+                //catch (DbUpdateConcurrencyException)
+                //{
+                //    if (!ClientExists(client.ClientId))
+                //    {
+                //        return NotFound();
+                //    }
+                //    else
+                //    {
+                //        throw;
+                //    }
+                //}
+
                 return RedirectToAction(nameof(Index));
             }
+
             return View(client);
         }
 
@@ -123,8 +139,10 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
                 return NotFound();
             }
 
-            var client = await _context.Client
-                .FirstOrDefaultAsync(m => m.ClientId == id);
+            //var client = await _context.Client.FirstOrDefaultAsync(m => m.ClientId == id);
+            
+            var client = await _context.GetAPICall<Client>(string.Concat("Clients", "/", id));
+
             if (client == null)
             {
                 return NotFound();
@@ -138,15 +156,22 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var client = await _context.Client.FindAsync(id);
-            _context.Client.Remove(client);
-            await _context.SaveChangesAsync();
+            //var client = await _context.Client.FindAsync(id);
+            //_context.Client.Remove(client);
+            //await _context.SaveChangesAsync();
+            
+            var client = await _context.DeleteAPICall<Client>(string.Concat("Clients", "/", id));
+
             return RedirectToAction(nameof(Index));
         }
 
         private bool ClientExists(int id)
         {
-            return _context.Client.Any(e => e.ClientId == id);
+            //return _context.Client.Any(e => e.ClientId == id);
+            
+            var task = _context.GetAPICall<Client>(string.Concat("Clients", "/", id)).Result;
+            
+            return (task.ClientId > 0);
         }
     }
 }

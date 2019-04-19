@@ -2,10 +2,25 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
+//API Namespace Requirements
+using System.Net.Http;
+using System.Text;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+
 namespace SOFT549_ASD_MIS_DemoWebApp.Models
 {
     public partial class GilesContext : DbContext
     {
+        #region Variables
+
+        private HttpClient _httpClient;
+        private Uri _apiBaseURL;
+
+        #endregion
+
+        #region Constructors
+
         public GilesContext()
         {
         }
@@ -13,7 +28,13 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Models
         public GilesContext(DbContextOptions<GilesContext> options)
             : base(options)
         {
+            _httpClient = new HttpClient();
+            _apiBaseURL = new Uri("https://localhost:44318/api/");
         }
+
+        #endregion
+
+        #region Database Methods
 
         public virtual DbSet<Activity> Activity { get; set; }
         public virtual DbSet<Assignment> Assignment { get; set; }
@@ -248,5 +269,101 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Models
                     .HasConstraintName("FK_Staff_Role");
             });
         }
+
+        #endregion
+
+        #region API Methods
+
+        private Uri CreateRequestUri(string relativePath, string queryString = "")
+        {
+            var endpoint = new Uri(_apiBaseURL, relativePath);
+            var uriBuilder = new UriBuilder(endpoint);
+
+            uriBuilder.Query = queryString;
+
+            return uriBuilder.Uri;
+        }
+
+        private HttpContent CreateHttpContent<T>(T data)
+        {
+            var json = JsonConvert.SerializeObject(data, MicrosoftDateFormatSettings);
+            return new StringContent(json, Encoding.UTF8, "application/json");
+        }
+
+        private void AddHeaders()
+        {
+            //_httpClient.DefaultRequestHeaders.Remove("apiKey");
+            //_httpClient.DefaultRequestHeaders.Add("apiKey", "gskfjnDHsdf8dfnh:LZASFDs8dfhp;szdf089ufp;klnfd");
+        }
+
+        private static JsonSerializerSettings MicrosoftDateFormatSettings
+        {
+            get
+            {
+                return new JsonSerializerSettings
+                {
+                    DateFormatHandling = DateFormatHandling.MicrosoftDateFormat
+                };
+            }
+        }
+        
+        private Uri StartAPICall(string apiCommand)
+        {
+            Uri requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture, apiCommand));
+
+            AddHeaders();
+
+            return requestUrl;
+        }
+
+        public async Task<T> GetAPICall<T>(string apiCommand)
+        {
+            Uri requestUrl = StartAPICall(apiCommand);
+
+            var response = await _httpClient.GetAsync(requestUrl, HttpCompletionOption.ResponseHeadersRead);
+            response.EnsureSuccessStatusCode();
+
+            var responseData = await response.Content.ReadAsStringAsync();
+
+            return JsonConvert.DeserializeObject<T>(responseData);
+        }
+
+        public async Task<T> PostAPICall<T>(string apiCommand, T data)
+        {
+            Uri requestUrl = StartAPICall(apiCommand);
+
+            var response = await _httpClient.PostAsync(requestUrl, CreateHttpContent<T>(data));
+            response.EnsureSuccessStatusCode();
+
+            var responseData = await response.Content.ReadAsStringAsync();
+
+            return JsonConvert.DeserializeObject<T>(responseData);
+        }
+
+        public async Task<T> PutAPICall<T>(string apiCommand, T data)
+        {
+            Uri requestUrl = StartAPICall(apiCommand);
+
+            var response = await _httpClient.PutAsync(requestUrl, CreateHttpContent<T>(data));
+            response.EnsureSuccessStatusCode();
+
+            var responseData = await response.Content.ReadAsStringAsync();
+
+            return JsonConvert.DeserializeObject<T>(responseData);
+        }
+
+        public async Task<T> DeleteAPICall<T>(string apiCommand)
+        {
+            Uri requestUrl = StartAPICall(apiCommand);
+
+            var response = await _httpClient.DeleteAsync(requestUrl);
+            response.EnsureSuccessStatusCode();
+
+            var responseData = await response.Content.ReadAsStringAsync();
+
+            return JsonConvert.DeserializeObject<T>(responseData);
+        }
+
+        #endregion
     }
 }
