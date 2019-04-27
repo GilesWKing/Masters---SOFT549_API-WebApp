@@ -21,9 +21,12 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
         // GET: Tasks
         public async Task<IActionResult> Index()
         {
-            var gilesContext = _context.Assignment.Include(a => a.Activity).Include(a => a.Staff);
-            return View(await gilesContext.ToListAsync());
+            //var gilesContext = _context.Assignment.Include(a => a.Activity).Include(a => a.Staff);
+            //return View(await gilesContext.ToListAsync());
+
+            return View(await _context.GetApiCall<List<Assignment>>("Tasks"));
         }
+
 
         // GET: Tasks/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -33,10 +36,12 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
                 return NotFound();
             }
 
-            var assignment = await _context.Assignment
-                .Include(a => a.Activity)
-                .Include(a => a.Staff)
-                .FirstOrDefaultAsync(m => m.TaskId == id);
+            //var assignment = await _context.Assignment
+            //    .Include(a => a.Activity)
+            //    .Include(a => a.Staff)
+            //    .FirstOrDefaultAsync(m => m.TaskId == id);
+
+            var assignment = await _context.GetApiCall<Assignment>(string.Concat("Tasks", "/", id));
             if (assignment == null)
             {
                 return NotFound();
@@ -45,6 +50,7 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
             return View(assignment);
         }
 
+
         // GET: Tasks/Create
         public IActionResult Create()
         {
@@ -52,6 +58,7 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
             ViewData["StaffId"] = new SelectList(_context.Staff, "StaffId", "Organisation");
             return View();
         }
+
 
         // POST: Tasks/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -62,8 +69,11 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(assignment);
-                await _context.SaveChangesAsync();
+                //_context.Add(assignment);
+                //await _context.SaveChangesAsync();
+
+                var result = await _context.PostApiCall<Assignment>("Tasks", assignment);
+
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ActivityId"] = new SelectList(_context.Activity, "ActivityId", "ActivityName", assignment.ActivityId);
@@ -79,7 +89,10 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
                 return NotFound();
             }
 
-            var assignment = await _context.Assignment.FindAsync(id);
+            //var assignment = await _context.Assignment.FindAsync(id);
+
+            var assignment = await _context.GetApiCall<Assignment>(string.Concat("Tasks", "/", id));
+
             if (assignment == null)
             {
                 return NotFound();
@@ -103,28 +116,30 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
 
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _context.Update(assignment);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!AssignmentExists(assignment.TaskId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
+                //try
+                //{
+                //    _context.Update(assignment);
+                //    await _context.SaveChangesAsync();
+                //}
+                //catch (DbUpdateConcurrencyException)
+                //{
+                //    if (!AssignmentExists(assignment.TaskId))
+                //    {
+                //        return NotFound();
+                //    }
+                //    else
+                //    {
+                //        throw;
+                //    }
+                //}
+
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ActivityId"] = new SelectList(_context.Activity, "ActivityId", "ActivityName", assignment.ActivityId);
             ViewData["StaffId"] = new SelectList(_context.Staff, "StaffId", "Organisation", assignment.StaffId);
             return View(assignment);
         }
+
 
         // GET: Tasks/Delete/5
         public async Task<IActionResult> Delete(int? id)
@@ -134,10 +149,12 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
                 return NotFound();
             }
 
-            var assignment = await _context.Assignment
-                .Include(a => a.Activity)
-                .Include(a => a.Staff)
-                .FirstOrDefaultAsync(m => m.TaskId == id);
+            //var assignment = await _context.Assignment
+            //    .Include(a => a.Activity)
+            //    .Include(a => a.Staff)
+            //    .FirstOrDefaultAsync(m => m.TaskId == id);
+            var assignment = await _context.GetApiCall<Assignment>(string.Concat("Tasks", "/", id));
+
             if (assignment == null)
             {
                 return NotFound();
@@ -151,15 +168,21 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var assignment = await _context.Assignment.FindAsync(id);
-            _context.Assignment.Remove(assignment);
-            await _context.SaveChangesAsync();
+            //var assignment = await _context.Assignment.FindAsync(id);
+            //_context.Assignment.Remove(assignment);
+            //await _context.SaveChangesAsync();
+
+            var client = await _context.DeleteApiCall<Assignment>(string.Concat("Tasks", "/", id));
             return RedirectToAction(nameof(Index));
         }
 
         private bool AssignmentExists(int id)
         {
-            return _context.Assignment.Any(e => e.TaskId == id);
+            //return _context.Assignment.Any(e => e.TaskId == id);
+
+            var task = _context.GetApiCall<Assignment>(string.Concat("Tasks", "/", id)).Result;
+
+            return (task.TaskId > 0);
         }
     }
 }

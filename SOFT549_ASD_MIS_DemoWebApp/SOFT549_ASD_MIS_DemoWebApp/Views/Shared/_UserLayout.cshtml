@@ -17,27 +17,41 @@
 </head>
 <body>
 
-    <!--    Navbar for _Layout.cshtml.  This is used for Login, About and contact pages.    -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-            <div class="header-thumbnail" border="0">
-                <img src="~/images/ASD_header_logo.png" alt="Active Software Development" width=185 height=51 />
-            </div>
-            <div class="collapse navbar-collapse" id="navbarColor01">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item"></li>
-                    <li class="nav-item active">
-                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Login<span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="About">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    <!--    End of Navbar.    -->
+        <div class="header-thumbnail" border="0">
+            <img src="~/images/ASD_header_logo.png" alt="Active Software Development" width=185 height=51 />
+        </div>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"></li>
+                <li class="nav-item active">
+                    <a class="nav-link" asp-area="" asp-controller="User" asp-action="Overview">Overview<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-controller="..." asp-action="Index">Quote System</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-controller="Projects" asp-action="Index">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-controller="Activities" asp-action="Index">Activities</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-controller="Tasks" asp-action="Index">Tasks</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-controller="Clients" asp-action="Index">Clients</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-controller="Staffing" asp-action="Index">Staff</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-controller="Roles" asp-action="Index">Titles</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
 
     <div class="container body-content">
 
@@ -64,9 +78,6 @@
                 </div>
             </div>
         </footer>
-
-
-
     </div>
 
     @*<environment include="Development">

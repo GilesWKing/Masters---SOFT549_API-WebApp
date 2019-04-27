@@ -18,11 +18,14 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
             _context = context;
         }
 
+
         // GET: Projects
         public async Task<IActionResult> Index()
         {
-            var gilesContext = _context.Project.Include(p => p.Client);
-            return View(await gilesContext.ToListAsync());
+            //var gilesContext = _context.Project.Include(p => p.Client);
+            //return View(await gilesContext.ToListAsync());
+
+            return View(await _context.GetApiCall<List<Project>>("Projects"));
         }
 
         // GET: Projects/Details/5
@@ -33,9 +36,7 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
                 return NotFound();
             }
 
-            var project = await _context.Project
-                .Include(p => p.Client)
-                .FirstOrDefaultAsync(m => m.ProjectId == id);
+            var project = await _context.GetApiCall<Project>(string.Concat("Projects", "/", id));
             if (project == null)
             {
                 return NotFound();
@@ -47,7 +48,7 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
         // GET: Projects/Create
         public IActionResult Create()
         {
-            ViewData["ClientId"] = new SelectList(_context.Client, "ClientId", "ClientContact");
+            ViewData["ClientId"] = new SelectList(_context.Client, "ClientId", "ClientName");
             return View();
         }
 
@@ -60,11 +61,13 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(project);
-                await _context.SaveChangesAsync();
+                //_context.Add(project);
+                //await _context.SaveChangesAsync();
+
+                var result = await _context.PostApiCall<Project>("Projects", project);
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ClientId"] = new SelectList(_context.Client, "ClientId", "ClientContact", project.ClientId);
+            ViewData["ClientId"] = new SelectList(_context.Client, "ClientId", "ClientName", project.ClientId);
             return View(project);
         }
 
@@ -76,7 +79,10 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
                 return NotFound();
             }
 
-            var project = await _context.Project.FindAsync(id);
+            //var project = await _context.Project.FindAsync(id);
+
+            var project = await _context.GetApiCall<Project>(string.Concat("Projects", "/", id));
+
             if (project == null)
             {
                 return NotFound();
@@ -99,22 +105,23 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
 
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _context.Update(project);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ProjectExists(project.ProjectId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
+                //try
+                //{
+                //    _context.Update(project);
+                //    await _context.SaveChangesAsync();
+                //}
+                //catch (DbUpdateConcurrencyException)
+                //{
+                //    if (!ProjectExists(project.ProjectId))
+                //    {
+                //        return NotFound();
+                //    }
+                //    else
+                //    {
+                //        throw;
+                //    }
+
+                //}
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ClientId"] = new SelectList(_context.Client, "ClientId", "ClientContact", project.ClientId);
@@ -129,9 +136,12 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
                 return NotFound();
             }
 
-            var project = await _context.Project
-                .Include(p => p.Client)
-                .FirstOrDefaultAsync(m => m.ProjectId == id);
+            //var project = await _context.Project
+            //    .Include(p => p.Client)
+            //    .FirstOrDefaultAsync(m => m.ProjectId == id);
+
+            var project = await _context.GetApiCall<Project>(string.Concat("Projects", "/", id));
+
             if (project == null)
             {
                 return NotFound();
@@ -145,15 +155,21 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var project = await _context.Project.FindAsync(id);
-            _context.Project.Remove(project);
-            await _context.SaveChangesAsync();
+            //var project = await _context.Project.FindAsync(id);
+            //_context.Project.Remove(project);
+            //await _context.SaveChangesAsync();
+
+            var project = await _context.DeleteApiCall<Project>(String.Concat("Projects", "/", id));
             return RedirectToAction(nameof(Index));
         }
 
         private bool ProjectExists(int id)
         {
-            return _context.Project.Any(e => e.ProjectId == id);
+            //   return _context.Project.Any(e => e.ProjectId == id);
+
+            var task = _context.GetApiCall<Project>(string.Concat("Projects", "/", id)).Result;
+
+            return (task.ProjectId > 0);
         }
     }
 }

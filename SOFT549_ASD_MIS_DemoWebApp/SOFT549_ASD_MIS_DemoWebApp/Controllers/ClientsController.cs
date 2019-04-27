@@ -18,13 +18,18 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
             _context = context;
         }
 
+
         // GET: Clients
         public async Task<IActionResult> Index()
         {
-            //return View(await _context.Client.ToListAsync());
-            
-            return View(await _context.GetAPICall<List<Client>>("Clients"));
+            //return View(await _context.Client.ToListAsync());         //Old method to call database functions
+
+            return View(await _context.GetApiCall<List<Client>>("Clients"));
+            /// <summary>
+            /// Adds the word "Clients" on to the end of the string that will call the API.
+            /// </summary>
         }
+
 
         // GET: Clients/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -35,9 +40,8 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
             }
 
             //var client = await _context.Client.FirstOrDefaultAsync(m => m.ClientId == id);
-            
-            var client = await _context.GetAPICall<Client>(string.Concat("Clients", "/", id));
 
+            var client = await _context.GetApiCall<Client>(string.Concat("Clients", "/", id));      // Need validation around this string!
             if (client == null)
             {
                 return NotFound();
@@ -46,11 +50,13 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
             return View(client);
         }
 
+
         // GET: Clients/Create
         public IActionResult Create()
         {
             return View();
         }
+
 
         // POST: Clients/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -63,14 +69,14 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
             {
                 //_context.Add(client);
                 //await _context.SaveChangesAsync();
-                
-                var result = await _context.PostAPICall<Client>("Clients", client);
+
+                var result = await _context.PostApiCall<Client>("Clients", client);
 
                 return RedirectToAction(nameof(Index));
             }
-
             return View(client);
         }
+
 
         // GET: Clients/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -81,16 +87,17 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
             }
 
             //var client = await _context.Client.FindAsync(id);
-            
-            var client = await _context.GetAPICall<Client>(string.Concat("Clients", "/", id));
+
+            var client = await _context.GetApiCall<Client>(string.Concat("Clients", "/", id)); // Again, validation needed on this string!
 
             if (client == null)
             {
                 return NotFound();
             }
-
             return View(client);
         }
+
+
 
         // POST: Clients/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -110,13 +117,11 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
                 //{
                 //    _context.Update(client);
                 //    await _context.SaveChangesAsync();
-                
-                    var result = await _context.PutAPICall<Client>(string.Concat("Clients", "/", id), client);
                 //}
                 //catch (DbUpdateConcurrencyException)
                 //{
                 //    if (!ClientExists(client.ClientId))
-                //    {
+                //   {
                 //        return NotFound();
                 //    }
                 //    else
@@ -127,9 +132,9 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
 
                 return RedirectToAction(nameof(Index));
             }
-
             return View(client);
         }
+
 
         // GET: Clients/Delete/5
         public async Task<IActionResult> Delete(int? id)
@@ -140,8 +145,8 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
             }
 
             //var client = await _context.Client.FirstOrDefaultAsync(m => m.ClientId == id);
-            
-            var client = await _context.GetAPICall<Client>(string.Concat("Clients", "/", id));
+
+            var client = await _context.GetApiCall<Client>(string.Concat("Clients", "/", id));
 
             if (client == null)
             {
@@ -151,6 +156,7 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
             return View(client);
         }
 
+
         // POST: Clients/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -159,18 +165,17 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
             //var client = await _context.Client.FindAsync(id);
             //_context.Client.Remove(client);
             //await _context.SaveChangesAsync();
-            
-            var client = await _context.DeleteAPICall<Client>(string.Concat("Clients", "/", id));
 
+            var client = await _context.DeleteApiCall<Client>(string.Concat("Clients", "/", id));
             return RedirectToAction(nameof(Index));
         }
 
         private bool ClientExists(int id)
         {
             //return _context.Client.Any(e => e.ClientId == id);
-            
-            var task = _context.GetAPICall<Client>(string.Concat("Clients", "/", id)).Result;
-            
+
+            var task = _context.GetApiCall<Client>(string.Concat("Clients", "/", id)).Result;
+
             return (task.ClientId > 0);
         }
     }
