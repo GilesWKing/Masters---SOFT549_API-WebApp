@@ -5,14 +5,51 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using SOFT549_ASD_MIS_DemoWebApp.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
 {
     public class HomeController : Controller
     {
+
+        private readonly GilesContext _context;
+
+        public HomeController(GilesContext context)
+        {
+            _context = context;
+        }
+
+        [HttpGet]
         public IActionResult Index()
         {
+            if (Convert.ToBoolean(HttpContext.Session.GetString("Authenticated")))
+            {
+                return Redirect("/User/Overview");
+            }
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Index(Authentication model)
+        {
+            if (model.Username == "superuser@asd.com" && model.Password == "Admin")
+            {
+                HttpContext.Session.SetString("Authenticated", true.ToString());
+
+                return View("~/Views/User/Overview.cshtml");
+            }
+            if (model.Username != null && model.Password != null)
+            {
+                ViewBag.NotValidUser = "Not valid login credentials.";
+            }
+
+            return View();
+        }
+
+        public IActionResult Logout()
+        {
+            HttpContext.Session.SetString("Authenticated", false.ToString());
+            return Redirect("/");
         }
 
         public IActionResult About()

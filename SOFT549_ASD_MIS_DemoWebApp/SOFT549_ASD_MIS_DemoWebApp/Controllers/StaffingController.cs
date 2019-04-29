@@ -54,8 +54,8 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
         // GET: Staffing/Create
         public IActionResult Create()
         {
-            ViewData["ClientId"] = new SelectList(_context.Client, "ClientId", "ClientContact");
-            ViewData["RoleId"] = new SelectList(_context.Role, "RoleId", "RoleName");
+            //ViewData["ClientId"] = new SelectList(_context.Client, "ClientId", "ClientContact");
+            //ViewData["RoleId"] = new SelectList(_context.Role, "RoleId", "RoleName");
             return View();
         }
 
@@ -76,8 +76,8 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
 
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ClientId"] = new SelectList(_context.Client, "ClientId", "ClientContact", staff.ClientId);
-            ViewData["RoleId"] = new SelectList(_context.Role, "RoleId", "RoleName", staff.RoleId);
+            //ViewData["ClientId"] = new SelectList(_context.Client, "ClientId", "ClientContact", staff.ClientId);
+            //ViewData["RoleId"] = new SelectList(_context.Role, "RoleId", "RoleName", staff.RoleId);
             return View(staff);
         }
 
@@ -98,8 +98,8 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
             {
                 return NotFound();
             }
-            ViewData["ClientId"] = new SelectList(_context.Client, "ClientId", "ClientContact", staff.ClientId);
-            ViewData["RoleId"] = new SelectList(_context.Role, "RoleId", "RoleName", staff.RoleId);
+            //ViewData["ClientId"] = new SelectList(_context.Client, "ClientId", "ClientContact", staff.ClientId);
+            //ViewData["RoleId"] = new SelectList(_context.Role, "RoleId", "RoleName", staff.RoleId);
             return View(staff);
         }
 
@@ -118,6 +118,7 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
 
             if (ModelState.IsValid)
             {
+                var result = await _context.PutApiCall<Staff>(string.Concat("Staffing", "/", id), staff);
                 //try
                 //{
                 //    _context.Update(staff);
@@ -137,8 +138,8 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
 
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ClientId"] = new SelectList(_context.Client, "ClientId", "ClientContact", staff.ClientId);
-            ViewData["RoleId"] = new SelectList(_context.Role, "RoleId", "RoleName", staff.RoleId);
+            //ViewData["ClientId"] = new SelectList(_context.Client, "ClientId", "ClientContact", staff.ClientId);
+            //ViewData["RoleId"] = new SelectList(_context.Role, "RoleId", "RoleName", staff.RoleId);
             return View(staff);
         }
 

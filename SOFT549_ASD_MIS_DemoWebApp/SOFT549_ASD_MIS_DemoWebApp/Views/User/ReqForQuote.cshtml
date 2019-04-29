@@ -1,0 +1,149 @@
+﻿
+@{
+    ViewData["Title"] = "RFQ";
+}
+<br />
+<h3><u>Request for Quote - (RFQ's)</u></h3>
+<br />
+<hr />
+<form>
+    <!-- method="post" needed here????-->
+    <fieldset>
+        <legend>Insert Quote Details</legend>
+        <hr />
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="col-form-label" for="inputDefault">Client Organisation Name</label>
+                    <input type="text" class="form-control" placeholder="Organisation" id="inputDefault" />
+                </div>
+            </div>
+
+            <div class="col-md-1">
+                <div class="form-group">
+                    <div class="custom-control custom-checkbox">
+                        <label class="custom-control-label" for="customCheckbox">Use existing Client?</label>
+                        <input type="checkbox" class="custom-control-input" id="customCheck1" checked="" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label class="col-form-label" for="custom-select">Existing Clients</label>
+                    <select class="custom-select" disabled="">
+                        <option selected="">Function not yet available</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="col-form-label" for="inputDefault">Client Phone Number</label>
+                    <input type="text" class="form-control" placeholder="Phone number" id="inputDefault" />
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="col-form-label" for="inputDefault">Client E-mail Address</label>
+                    <input type="text" class="form-control" placeholder="something@something.co.uk" id="inputDefault" />
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="col-form-label" for="inputDefault">Client Representative</label>
+                    <input type="text" class="form-control" placeholder="Joe Bloggs" id="inputDefault" />
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="col-form-label" for="inputDefault">Representative Contact</label>
+                    <input type="text" class="form-control" placeholder="Preferred contact method here" id="inputDefault" />
+                </div>
+            </div>
+
+        </div>
+
+        <hr />
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="col-form-label" for="inputDefault">Name of Project</label>
+                    <input type="text" class="form-control" placeholder="Insert name here" id="inputDefault" />
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="col-form-label" for="custom-select">Project Manager</label>
+                    <select class="custom-select">
+                        <option selected="">Select your manager</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-1"></div>
+
+            <div class="col-md-4 col-sm-4 col-xs-4">
+                <div class="form-group">
+                    <label class="col-form-label" for="date">Predicted Start Date</label>
+                    <input class="form-control" id="date" name="date" placeholder="DD/MM/YYYY" type="text" />
+                </div>
+            </div>
+
+            <div class="col-md-2 col-sm-2 col-xs-2"></div>
+
+            <div class="col-md-4 col-sm-4 col-xs-4">
+                <div class="form-group">
+                    <label class="col-form-label" for="date">Predicted Completion Date</label>
+                    <input class="form-control" id="date" name="date" placeholder="DD/MM/YYYY" type="text" />
+                </div>
+            </div>
+
+            <div class="col-md-1"></div>
+
+        </div>
+
+    </fieldset>
+</form>
+<hr />
+<br />
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="card border-warning text-black bg-white mb-3" style="max-width: 100%">
+            <div class="card-header">Request for Quote</div>
+            <div class="card-body">
+                <h4 class="card-title">Data Input</h4>
+                <p class="card-text">
+                    The Request for Quote page is to insert data required to initiate a project. Upon successful insertion of data, the database will be populated with information for the quote.
+                    You can find the information below;
+                </p>
+                <p class="card-text">
+                    <strong><u>Client;</u></strong> a new client will be created, and can be viewed in the Client Index page. Client representative information will be stored in the
+                    Staff table and can be found in the Staff page.
+                </p>
+                <p class="card-text"><strong><u>Project;</u></strong> a new project will be created, and can be viewed in the Project page.</p>
+                <p class="card-text">
+                    <strong><u>Activities;</u></strong> the project management activity will be created, with the activity start and end date set to the duration of the predicted project
+                    start and completion dates. These can be edited and can be viewed in the Activities page.
+                </p>
+                <p class="card-text">
+                    <strong><u>Tasks;</u></strong> the project management task will be created, with the task start and end date set to the duration of the predicted project
+                    start and completion dates. These can be edited and can be viewed in the Tasks page.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<br /><br /><br /><br />

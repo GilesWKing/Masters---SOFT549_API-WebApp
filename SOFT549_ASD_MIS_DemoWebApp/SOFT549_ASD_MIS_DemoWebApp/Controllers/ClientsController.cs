@@ -113,6 +113,8 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
 
             if (ModelState.IsValid)
             {
+
+                var result = await _context.PutApiCall<Client>(string.Concat("Clients", "/", id), client);
                 //try
                 //{
                 //    _context.Update(client);

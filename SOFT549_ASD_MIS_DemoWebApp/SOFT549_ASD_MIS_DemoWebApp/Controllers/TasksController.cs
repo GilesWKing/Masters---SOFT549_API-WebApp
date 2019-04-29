@@ -54,8 +54,8 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
         // GET: Tasks/Create
         public IActionResult Create()
         {
-            ViewData["ActivityId"] = new SelectList(_context.Activity, "ActivityId", "ActivityName");
-            ViewData["StaffId"] = new SelectList(_context.Staff, "StaffId", "Organisation");
+            //ViewData["ActivityId"] = new SelectList(_context.Activity, "ActivityId", "ActivityName");
+            //ViewData["StaffId"] = new SelectList(_context.Staff, "StaffId", "Organisation");
             return View();
         }
 
@@ -76,8 +76,8 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
 
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ActivityId"] = new SelectList(_context.Activity, "ActivityId", "ActivityName", assignment.ActivityId);
-            ViewData["StaffId"] = new SelectList(_context.Staff, "StaffId", "Organisation", assignment.StaffId);
+            //ViewData["ActivityId"] = new SelectList(_context.Activity, "ActivityId", "ActivityName", assignment.ActivityId);
+            //ViewData["StaffId"] = new SelectList(_context.Staff, "StaffId", "Organisation", assignment.StaffId);
             return View(assignment);
         }
 
@@ -97,8 +97,8 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
             {
                 return NotFound();
             }
-            ViewData["ActivityId"] = new SelectList(_context.Activity, "ActivityId", "ActivityName", assignment.ActivityId);
-            ViewData["StaffId"] = new SelectList(_context.Staff, "StaffId", "Organisation", assignment.StaffId);
+            //ViewData["ActivityId"] = new SelectList(_context.Activity, "ActivityId", "ActivityName", assignment.ActivityId);
+            //ViewData["StaffId"] = new SelectList(_context.Staff, "StaffId", "Organisation", assignment.StaffId);
             return View(assignment);
         }
 
@@ -116,6 +116,7 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
 
             if (ModelState.IsValid)
             {
+                var result = await _context.PutApiCall<Assignment>(string.Concat("Tasks", "/", id), assignment);
                 //try
                 //{
                 //    _context.Update(assignment);
@@ -135,8 +136,8 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
 
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ActivityId"] = new SelectList(_context.Activity, "ActivityId", "ActivityName", assignment.ActivityId);
-            ViewData["StaffId"] = new SelectList(_context.Staff, "StaffId", "Organisation", assignment.StaffId);
+            //ViewData["ActivityId"] = new SelectList(_context.Activity, "ActivityId", "ActivityName", assignment.ActivityId);
+            //ViewData["StaffId"] = new SelectList(_context.Staff, "StaffId", "Organisation", assignment.StaffId);
             return View(assignment);
         }
 

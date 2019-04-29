@@ -48,7 +48,7 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
         // GET: Projects/Create
         public IActionResult Create()
         {
-            ViewData["ClientId"] = new SelectList(_context.Client, "ClientId", "ClientName");
+            //ViewData["ClientId"] = new SelectList(_context.Client, "ClientId", "ClientName");
             return View();
         }
 
@@ -67,7 +67,7 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
                 var result = await _context.PostApiCall<Project>("Projects", project);
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ClientId"] = new SelectList(_context.Client, "ClientId", "ClientName", project.ClientId);
+            //ViewData["ClientId"] = new SelectList(_context.Client, "ClientId", "ClientName", project.ClientId);
             return View(project);
         }
 
@@ -87,7 +87,7 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
             {
                 return NotFound();
             }
-            ViewData["ClientId"] = new SelectList(_context.Client, "ClientId", "ClientContact", project.ClientId);
+            //ViewData["ClientId"] = new SelectList(_context.Client, "ClientId", "ClientContact", project.ClientId);
             return View(project);
         }
 
@@ -105,6 +105,7 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
 
             if (ModelState.IsValid)
             {
+                var result = await _context.PutApiCall<Project>(string.Concat("Projects", "/", id), project);
                 //try
                 //{
                 //    _context.Update(project);
@@ -124,7 +125,7 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
                 //}
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ClientId"] = new SelectList(_context.Client, "ClientId", "ClientContact", project.ClientId);
+            //ViewData["ClientId"] = new SelectList(_context.Client, "ClientId", "ClientContact", project.ClientId);
             return View(project);
         }
 

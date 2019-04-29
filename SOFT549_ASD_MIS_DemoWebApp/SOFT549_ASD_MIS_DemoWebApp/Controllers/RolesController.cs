@@ -110,6 +110,7 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
 
             if (ModelState.IsValid)
             {
+                var result = await _context.PutApiCall<Role>(string.Concat("Roles", "/", id), role);
                 //try
                 //{
                 //    _context.Update(role);

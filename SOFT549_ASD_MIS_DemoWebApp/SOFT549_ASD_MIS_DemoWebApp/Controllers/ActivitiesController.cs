@@ -42,7 +42,7 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
             //    .Include(a => a.Staff)
             //    .FirstOrDefaultAsync(m => m.ActivityId == id);
 
-            var activity = await _context.GetApiCall<Client>(string.Concat("Activities", "/", id));
+            var activity = await _context.GetApiCall<Activity>(string.Concat("Activities", "/", id));
             if (activity == null)
             {
                 return NotFound();
@@ -55,8 +55,8 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
         // GET: Activities/Create
         public IActionResult Create()
         {
-            ViewData["ProjectId"] = new SelectList(_context.Project, "ProjectId", "PredictedCost");
-            ViewData["StaffId"] = new SelectList(_context.Staff, "StaffId", "Organisation");
+            //ViewData["ProjectId"] = new SelectList(_context.Project, "ProjectId", "PredictedCost");
+            //ViewData["StaffId"] = new SelectList(_context.Staff, "StaffId", "Organisation");
             return View();
         }
 
@@ -77,8 +77,8 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
 
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ProjectId"] = new SelectList(_context.Project, "ProjectId", "PredictedCost", activity.ProjectId);
-            ViewData["StaffId"] = new SelectList(_context.Staff, "StaffId", "Organisation", activity.StaffId);
+            //ViewData["ProjectId"] = new SelectList(_context.Project, "ProjectId", "PredictedCost", activity.ProjectId);
+            //ViewData["StaffId"] = new SelectList(_context.Staff, "StaffId", "Organisation", activity.StaffId);
             return View(activity);
         }
 
@@ -99,8 +99,8 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
             {
                 return NotFound();
             }
-            ViewData["ProjectId"] = new SelectList(_context.Project, "ProjectId", "PredictedCost", activity.ProjectId);
-            ViewData["StaffId"] = new SelectList(_context.Staff, "StaffId", "Organisation", activity.StaffId);
+            //ViewData["ProjectId"] = new SelectList(_context.Project, "ProjectId", "PredictedCost", activity.ProjectId);
+            //ViewData["StaffId"] = new SelectList(_context.Staff, "StaffId", "Organisation", activity.StaffId);
             return View(activity);
         }
 
@@ -119,6 +119,8 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
 
             if (ModelState.IsValid)
             {
+
+                var result = await _context.PutApiCall<Activity>(string.Concat("Activities", "/", id), activity);
                 //try
                 //{
                 //    _context.Update(activity);
@@ -138,8 +140,8 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
 
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ProjectId"] = new SelectList(_context.Project, "ProjectId", "PredictedCost", activity.ProjectId);
-            ViewData["StaffId"] = new SelectList(_context.Staff, "StaffId", "Organisation", activity.StaffId);
+            //ViewData["ProjectId"] = new SelectList(_context.Project, "ProjectId", "PredictedCost", activity.ProjectId);
+            //ViewData["StaffId"] = new SelectList(_context.Staff, "StaffId", "Organisation", activity.StaffId);
             return View(activity);
         }
 
