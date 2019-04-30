@@ -7,6 +7,7 @@
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap_Lux.css" />
         <link rel="stylesheet" href="~/css/site.css" />
+        <script src="~/lib/bootstrap/jquery/dist/jquery.js"></script>
     </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap_Lux.css"
@@ -21,14 +22,16 @@
         <div class="header-thumbnail" border="0">
             <img src="~/images/ASD_header_logo.png" alt="Active Software Development" width=185 height=51 />
         </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
         <div class="collapse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item"></li>
                 <li class="nav-item active">
                     <a class="nav-link" asp-area="" asp-controller="User" asp-action="Overview">Overview<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" asp-area="" asp-controller="User" asp-action="ReqForQuote">Quote System</a>
+                    <a class="nav-link" asp-area="" asp-controller="RequestForQuotes" asp-action="Index">Quote System</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" asp-area="" asp-controller="Projects" asp-action="Index">Projects</a>
@@ -64,42 +67,19 @@
             <div class="site-footer">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-md-4"></div>
-                        <div class="col-md-4">
+                        <div class="col-md-4 col-sm-3 col-xs-2"></div>
+                        <div class="col-md-4 col-sm-6 col-xs-8">
                             <div class="footer-text">
                                 <p> ASD Management Information System </p>
-                                <p><center><a href="#">customer.support@pnd.co.uk</a></center></p>
-                                <p>&copy; 2019 - Pilgrim Ninja Development</p>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4 col-sm-3 col-xs-2">
                         </div>
                     </div>
                 </div>
             </div>
         </footer>
     </div>
-
-    @*<environment include="Development">
-            <script src="~/lib/jquery/dist/jquery.js"></script>
-            <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-            <script src="~/js/site.js" asp-append-version="true"></script>
-        </environment>
-        <environment exclude="Development">
-            <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
-                    asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
-                    asp-fallback-test="window.jQuery"
-                    crossorigin="anonymous"
-                    integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
-            </script>
-            <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
-                    asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
-                    asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
-                    crossorigin="anonymous"
-                    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
-            </script>
-            <script src="~/js/site.min.js" asp-append-version="true"></script>
-        </environment>*@
 
     @RenderSection("Scripts", required: false)
 </body>

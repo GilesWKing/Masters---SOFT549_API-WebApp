@@ -22,8 +22,6 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
         // GET: Clients
         public async Task<IActionResult> Index()
         {
-            //return View(await _context.Client.ToListAsync());         //Old method to call database functions
-
             return View(await _context.GetApiCall<List<Client>>("Clients"));
             /// <summary>
             /// Adds the word "Clients" on to the end of the string that will call the API.
@@ -39,9 +37,7 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
                 return NotFound();
             }
 
-            //var client = await _context.Client.FirstOrDefaultAsync(m => m.ClientId == id);
-
-            var client = await _context.GetApiCall<Client>(string.Concat("Clients", "/", id));      // Need validation around this string!
+            var client = await _context.GetApiCall<Client>(string.Concat("Clients", "/", id));      // Need validation here.
             if (client == null)
             {
                 return NotFound();
@@ -59,17 +55,13 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
 
 
         // POST: Clients/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ClientId,ClientName,ClientContact")] Client client)
         {
             if (ModelState.IsValid)
             {
-                //_context.Add(client);
-                //await _context.SaveChangesAsync();
-
                 var result = await _context.PostApiCall<Client>("Clients", client);
 
                 return RedirectToAction(nameof(Index));
@@ -86,8 +78,6 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
                 return NotFound();
             }
 
-            //var client = await _context.Client.FindAsync(id);
-
             var client = await _context.GetApiCall<Client>(string.Concat("Clients", "/", id)); // Again, validation needed on this string!
 
             if (client == null)
@@ -100,8 +90,6 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
 
 
         // POST: Clients/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("ClientId,ClientName,ClientContact")] Client client)
@@ -115,23 +103,6 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
             {
 
                 var result = await _context.PutApiCall<Client>(string.Concat("Clients", "/", id), client);
-                //try
-                //{
-                //    _context.Update(client);
-                //    await _context.SaveChangesAsync();
-                //}
-                //catch (DbUpdateConcurrencyException)
-                //{
-                //    if (!ClientExists(client.ClientId))
-                //   {
-                //        return NotFound();
-                //    }
-                //    else
-                //    {
-                //        throw;
-                //    }
-                //}
-
                 return RedirectToAction(nameof(Index));
             }
             return View(client);
@@ -145,9 +116,6 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
             {
                 return NotFound();
             }
-
-            //var client = await _context.Client.FirstOrDefaultAsync(m => m.ClientId == id);
-
             var client = await _context.GetApiCall<Client>(string.Concat("Clients", "/", id));
 
             if (client == null)
@@ -164,18 +132,12 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            //var client = await _context.Client.FindAsync(id);
-            //_context.Client.Remove(client);
-            //await _context.SaveChangesAsync();
-
             var client = await _context.DeleteApiCall<Client>(string.Concat("Clients", "/", id));
             return RedirectToAction(nameof(Index));
         }
 
         private bool ClientExists(int id)
         {
-            //return _context.Client.Any(e => e.ClientId == id);
-
             var task = _context.GetApiCall<Client>(string.Concat("Clients", "/", id)).Result;
 
             return (task.ClientId > 0);

@@ -1,0 +1,75 @@
+﻿@model SOFT549_ASD_MIS_DemoWebApp.Models.RequestForQuote
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>RequestForQuote</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ClientName" class="control-label"></label>
+                <input asp-for="ClientName" class="form-control" />
+                <span asp-validation-for="ClientName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClientPhone" class="control-label"></label>
+                <input asp-for="ClientPhone" class="form-control" />
+                <span asp-validation-for="ClientPhone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClientEmail" class="control-label"></label>
+                <input asp-for="ClientEmail" class="form-control" />
+                <span asp-validation-for="ClientEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClientRep" class="control-label"></label>
+                <input asp-for="ClientRep" class="form-control" />
+                <span asp-validation-for="ClientRep" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClientRepContact" class="control-label"></label>
+                <input asp-for="ClientRepContact" class="form-control" />
+                <span asp-validation-for="ClientRepContact" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProjectName" class="control-label"></label>
+                <input asp-for="ProjectName" class="form-control" />
+                <span asp-validation-for="ProjectName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProjectManager" class="control-label"></label>
+                <input asp-for="ProjectManager" class="form-control" />
+                <span asp-validation-for="ProjectManager" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PredStartDate" class="control-label"></label>
+                <input asp-for="PredStartDate" class="form-control" />
+                <span asp-validation-for="PredStartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PredCompletionDate" class="control-label"></label>
+                <input asp-for="PredCompletionDate" class="form-control" />
+                <span asp-validation-for="PredCompletionDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProjectDescription" class="control-label"></label>
+                <input asp-for="ProjectDescription" class="form-control" />
+                <span asp-validation-for="ProjectDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

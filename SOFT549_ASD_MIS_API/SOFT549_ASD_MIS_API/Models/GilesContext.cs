@@ -20,6 +20,7 @@ namespace SOFT549_ASD_MIS_API.Models
         public virtual DbSet<Assignment> Assignment { get; set; }
         public virtual DbSet<Client> Client { get; set; }
         public virtual DbSet<Project> Project { get; set; }
+        public virtual DbSet<RequestForQuote> RequestForQuote { get; set; }
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<Staff> Staff { get; set; }
 
@@ -54,8 +55,8 @@ namespace SOFT549_ASD_MIS_API.Models
             {
                 entity.Property(e => e.ActivityId)
                     .HasColumnName("activity_id")
-                    //.ValueGeneratedNever();
-                    .ValueGeneratedOnAdd();     //This will help increment the database by 1 when adding primary key information.
+                    //.ValueGeneratedNever();   //Original DB code that prevents a key being generated
+                    .ValueGeneratedOnAdd();     //This will help increment the database key by 1 when adding data relating to primary key.
 
                 entity.Property(e => e.ActivityName)
                     .IsRequired()
@@ -225,6 +226,68 @@ namespace SOFT549_ASD_MIS_API.Models
                     .HasForeignKey(d => d.ClientId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Project_Client");
+            });
+
+            modelBuilder.Entity<RequestForQuote>(entity =>
+            {
+                entity.HasKey(e => e.QuoteId);
+
+                entity.Property(e => e.QuoteId)
+                    .HasColumnName("quote_id")
+                    //.ValueGeneratedNever();
+                    .ValueGeneratedOnAdd();
+
+                entity.Property(e => e.ClientEmail)
+                    .HasColumnName("client_email")
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.ClientName)
+                    .HasColumnName("client_name")
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.ClientPhone)
+                    .HasColumnName("client_phone")
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.ClientRep)
+                    .HasColumnName("client_rep")
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.ClientRepContact)
+                    .HasColumnName("client_rep_contact")
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.PredCompletionDate)
+                    .HasColumnName("pred_completion_date")
+                    .HasColumnType("date");
+
+                entity.Property(e => e.PredStartDate)
+                    .HasColumnName("pred_start_date")
+                    .HasColumnType("date");
+
+                entity.Property(e => e.ProjectDescription)
+                    .HasColumnName("project_description")
+                    .IsUnicode(false);
+
+                entity.Property(e => e.ProjectManager)
+                    .HasColumnName("project_manager")
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.ProjectName)
+                    .HasColumnName("project_name")
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.PredictedCost)
+                    .HasColumnName("predicted_cost")
+                    .HasMaxLength(10)
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<Role>(entity =>

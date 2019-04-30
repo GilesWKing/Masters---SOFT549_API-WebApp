@@ -10698,7 +10698,7 @@ th {
 .login-form{
     background: #f7f7f7;
     box-shadow: 0px 0px 3px rgba(0,0,0,0.3);
-    padding: 30px;
+    padding: 0px;
 }
 
 .form-control{
@@ -10744,5 +10744,8 @@ th {
     background-color: rgba(22,22,22,1)
 }
 
+.nav-link-logout{
+    color: red;
+}
 
 /* End of custom CSS */

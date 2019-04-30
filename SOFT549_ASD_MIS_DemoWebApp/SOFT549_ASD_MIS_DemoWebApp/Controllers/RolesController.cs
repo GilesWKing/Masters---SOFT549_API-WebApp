@@ -22,8 +22,6 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
         // GET: Roles
         public async Task<IActionResult> Index()
         {
-            //return View(await _context.Role.ToListAsync());
-
             return View(await _context.GetApiCall<List<Role>>("Roles"));
         }
 
@@ -35,9 +33,6 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
             {
                 return NotFound();
             }
-
-            //var role = await _context.Role
-            //    .FirstOrDefaultAsync(m => m.RoleId == id);
 
             var role = await _context.GetApiCall<Role>(string.Concat("Roles", "/", id));
             if (role == null)
@@ -57,17 +52,13 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
 
 
         // POST: Roles/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("RoleId,RoleName,CostPerHour")] Role role)
         {
             if (ModelState.IsValid)
             {
-                //_context.Add(role);
-                //await _context.SaveChangesAsync();
-
                 var result = await _context.PostApiCall<Role>("Roles", role);
 
                 return RedirectToAction(nameof(Index));
@@ -83,9 +74,7 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
             {
                 return NotFound();
             }
-
-            //var role = await _context.Role.FindAsync(id);
-
+            
             var role = await _context.GetApiCall<Role>(string.Concat("Roles", "/", id));
 
             if (role == null)
@@ -97,8 +86,7 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
 
 
         // POST: Roles/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("RoleId,RoleName,CostPerHour")] Role role)
@@ -111,22 +99,6 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
             if (ModelState.IsValid)
             {
                 var result = await _context.PutApiCall<Role>(string.Concat("Roles", "/", id), role);
-                //try
-                //{
-                //    _context.Update(role);
-                //    await _context.SaveChangesAsync();
-                //}
-                //catch (DbUpdateConcurrencyException)
-                //{
-                //    if (!RoleExists(role.RoleId))
-                //    {
-                //        return NotFound();
-                //    }
-                //    else
-                //    {
-                //        throw;
-                //    }
-                //}
 
                 return RedirectToAction(nameof(Index));
             }
@@ -141,9 +113,6 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
             {
                 return NotFound();
             }
-
-            //var role = await _context.Role
-            //    .FirstOrDefaultAsync(m => m.RoleId == id);
 
             var role = await _context.GetApiCall<Role>(string.Concat("Roles", "/", id));
 
@@ -161,9 +130,6 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            //var role = await _context.Role.FindAsync(id);
-            //_context.Role.Remove(role);
-            //await _context.SaveChangesAsync();
 
             var role = await _context.DeleteApiCall<Role>(string.Concat("Roles", "/", id));
             return RedirectToAction(nameof(Index));
@@ -171,7 +137,6 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
 
         private bool RoleExists(int id)
         {
-            //return _context.Role.Any(e => e.RoleId == id);
 
             var task = _context.GetApiCall<Role>(string.Concat("Roles", "/", id)).Result;
 
