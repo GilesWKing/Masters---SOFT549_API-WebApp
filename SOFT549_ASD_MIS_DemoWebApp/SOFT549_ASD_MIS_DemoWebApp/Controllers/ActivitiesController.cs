@@ -44,8 +44,14 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
 
 
         // GET: Activities/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
+            var projectList = await _context.GetApiCall<List<SelectListItem>>(string.Concat("Projects", "/", "Dropdown"));
+            ViewBag.ProjectList = projectList;
+
+            var staffList = await _context.GetApiCall<List<SelectListItem>>(string.Concat("Staffing", "/", "Dropdown"));
+            ViewBag.StaffList = staffList;
+
             return View();
         }
 

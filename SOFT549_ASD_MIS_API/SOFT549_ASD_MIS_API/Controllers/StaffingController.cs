@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SOFT549_ASD_MIS_API.Models;
 
@@ -25,6 +26,30 @@ namespace SOFT549_ASD_MIS_API.Controllers
         public IEnumerable<Staff> GetStaff()
         {
             return _context.Staff;
+        }
+
+        // GET: api/Staffing/Dropdown           Selects List data
+        [HttpGet("Dropdown")]
+        public IEnumerable<SelectListItem> GetStaffDropdown()
+        {
+            var staffList = new List<SelectListItem>();
+
+            //staffingTable is all rows of staff table
+            var staffingTable = _context.Staff;
+            //for each row in staffing Table
+            foreach (var staffRow in staffingTable)
+            {
+                //take data from row in table and put in model
+                var staffListItem = new SelectListItem();
+                staffListItem.Value = staffRow.StaffId.ToString();
+                staffListItem.Text = staffRow.StaffName;
+
+                //put model into list
+                staffList.Add(staffListItem);
+            }
+
+            //return the completed list.
+            return staffList;
         }
 
         // GET: api/Staffing/5

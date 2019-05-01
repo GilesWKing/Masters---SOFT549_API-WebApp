@@ -3,8 +3,8 @@
 @{
     ViewData["Title"] = "Details";
 }
-
-<h2>Details</h2>
+<br/>
+<h3>Details</h3>
 
 <div>
     <h4>Activity</h4>
@@ -62,13 +62,13 @@
             @Html.DisplayNameFor(model => model.Project)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Project.PredictedCost)
+            @Html.DisplayFor(model => model.Project.ProjectName)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Staff)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Staff.Organisation)
+            @Html.DisplayFor(model => model.Staff.StaffName)
         </dd>
     </dl>
 </div>

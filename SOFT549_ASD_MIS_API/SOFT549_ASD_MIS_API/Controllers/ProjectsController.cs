@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SOFT549_ASD_MIS_API.Models;
 
@@ -27,6 +28,32 @@ namespace SOFT549_ASD_MIS_API.Controllers
             return _context.Project;
         }
 
+        // GET: api/Projects/Dropdown           Selects List data
+        [HttpGet("Dropdown")]
+        public IEnumerable<SelectListItem> GetProjectDropdown()
+        {
+            var projectList = new List<SelectListItem>();
+
+            //projectsTable is all rows of project table
+            var projectsTable = _context.Project;
+            //for each row in projects Table
+            foreach(var projectRow in projectsTable)
+            {
+                //take data from row in table and put in model
+                var projectListItem = new SelectListItem();
+                projectListItem.Value = projectRow.ProjectId.ToString();
+                projectListItem.Text = projectRow.ProjectName;
+
+                //put model into list
+                projectList.Add(projectListItem);
+            }
+
+            //return the completed list.
+            return projectList;
+        }
+
+
+   
         // GET: api/Projects/5
         [HttpGet("{id}")]
         public async Task<IActionResult> GetProject([FromRoute] int id)

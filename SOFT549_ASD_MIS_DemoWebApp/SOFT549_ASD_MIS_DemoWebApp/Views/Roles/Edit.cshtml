@@ -3,32 +3,42 @@
 @{
     ViewData["Title"] = "Edit";
 }
-
-<h2>Edit</h2>
+<br/>
+<h3>Edit</h3>
 
 <h4>Role</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
+    <div class="col-lg-4">
+        <form asp-action="Edit"></form>
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="RoleId" />
             <div class="form-group">
-                <label asp-for="RoleName" class="control-label"></label>
-                <input asp-for="RoleName" class="form-control" />
-                <span asp-validation-for="RoleName" class="text-danger"></span>
+                <fieldset>
+                    <label asp-for="RoleName" class="control-label"></label>
+                    <input asp-for="RoleName" class="form-control" />
+                    <span asp-validation-for="RoleName" class="text-danger"></span>
+                </fieldset>
             </div>
-            <div class="form-group">
+    </div>
+
+    <div class="col-lg-4">
+        <div class="form-group">
+            <fieldset>
                 <label asp-for="CostPerHour" class="control-label"></label>
                 <input asp-for="CostPerHour" class="form-control" />
                 <span asp-validation-for="CostPerHour" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
-        </form>
+            </fieldset>
+        </div>
     </div>
 </div>
+
+<row>
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-default" />
+    </div>
+</row>
+
 
 <div>
     <a asp-action="Index">Back to List</a>

@@ -3,44 +3,69 @@
 @{
     ViewData["Title"] = "Create";
 }
-
-<h2>Create</h2>
+<br/>
+<h3>Create</h3>
 
 <h4>Staff</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="RoleId" class="control-label"></label>
-                <select asp-for="RoleId" class ="form-control" asp-items="ViewBag.RoleId"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="StaffName" class="control-label"></label>
+    <div class="col-lg-3">
+        <form asp-action="Create"></form>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="form-group">
+            <fieldset>
+                <label asp-for="StaffName" class="control-label">Name</label>
                 <input asp-for="StaffName" class="form-control" />
                 <span asp-validation-for="StaffName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ContactDetails" class="control-label"></label>
+            </fieldset>
+        </div>
+    </div>
+    <div class="col-lg-3">
+        <div class="form-group">
+            <fieldset>
+                <label asp-for="ContactDetails" class="control-label">Contact Details</label>
                 <input asp-for="ContactDetails" class="form-control" />
                 <span asp-validation-for="ContactDetails" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Organisation" class="control-label"></label>
-                <input asp-for="Organisation" class="form-control" />
-                <span asp-validation-for="Organisation" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ClientId" class="control-label"></label>
-                <select asp-for="ClientId" class ="form-control" asp-items="ViewBag.ClientId"></select>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </form>
+            </fieldset>
+        </div>
+    </div>
+    <div class="col-lg-3">
+        <div class="form-group">
+            <fieldset>
+                <label asp-for="RoleId" class="control-label">Job Title</label>
+                <select asp-for="RoleId" class="form-control" asp-items="ViewBag.RoleId"></select>
+            </fieldset>
+        </div>
     </div>
 </div>
+<div class="row">
+    <div class="col-lg-3">
+        <div class="form-group">
+            <fieldset>
+                <label asp-for="Organisation" class="control-label">Attached Organisation</label>
+                <input asp-for="Organisation" placeholder="ASD, Client Rep, Freelancer...?" class="form-control" />
+                <span asp-validation-for="Organisation" class="text-danger"></span>
+            </fieldset>
+        </div>
+    </div>
+
+    <div class="col-lg-3">
+        <div class="form-group">
+            <fieldset>
+                <label asp-for="ClientId" class="control-label">Client Organisation</label>
+                <select asp-for="ClientId" class="form-control" asp-items="ViewBag.ClientId"></select>
+            </fieldset>
+        </div>
+    </div>
+</div>
+
+<row>
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-success" />
+    </div>
+</row>
+
 
 <div>
     <a asp-action="Index">Back to List</a>

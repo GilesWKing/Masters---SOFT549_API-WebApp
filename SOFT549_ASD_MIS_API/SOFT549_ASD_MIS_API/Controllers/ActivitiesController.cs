@@ -31,12 +31,36 @@ namespace SOFT549_ASD_MIS_API.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetActivity([FromRoute] int id)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+            //if (!ModelState.IsValid)
+            //{
+            //    return BadRequest(ModelState);
+            //}
 
-            var activity = await _context.Activity.FindAsync(id);
+            var activity = await _context.Activity.Include(x => x.Project).FirstOrDefaultAsync(x => x.ActivityId == id);           //var activity = new Activity();
+
+            ////projectsTable is all rows of project table
+            //var activitiesTable = _context.Activity;
+            ////for each row in projects Table
+            //foreach (var activityRow in activitiesTable)
+            //{
+            //    activity.ActivityId = activityRow.ActivityId;
+            //    activity.ProjectId = activityRow.ProjectId;
+            //    activity.ActivityName = activityRow.ActivityName;
+            //    activity.StaffId = activityRow.StaffId;
+            //    activity.PredictedStartDate = activityRow.PredictedStartDate;
+            //    activity.ActualStartDate = activityRow.ActualStartDate;
+            //    activity.PredictedCompletionDate = activityRow.PredictedCompletionDate;
+            //    activity.ActualCompletionDate = activityRow.ActualCompletionDate;
+            //    activity.PredictedCost = activityRow.PredictedCost;
+            //    activity.ActualCost = activityRow.ActualCost;
+            //    activity.ActivitySequence = activityRow.ActivitySequence;
+            //}
+
+            //var project = await _context.Project.FindAsync(activity.ProjectId);
+            //activity.ProjectName = project.ProjectName;
+
+            //var staff = await _context.Staff.FindAsync(activity.StaffId);
+            //activity.StaffName = staff.StaffName;
 
             if (activity == null)
             {
