@@ -24,9 +24,15 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
         {
             if (Convert.ToBoolean(HttpContext.Session.GetString("Authenticated")))
             {
-                return Redirect("/User/Overview");
+                return RedirectToAction("Overview", "User");
+                //return Redirect("/User/Overview");
             }
-            return View();
+
+            Authentication auth = new Authentication();
+            auth.Username = "superuser@asd.com";
+            auth.Password = "Admin";
+
+            return View(auth);
         }
 
         [HttpPost]
@@ -35,8 +41,8 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
             if (model.Username == "superuser@asd.com" && model.Password == "Admin")
             {
                 HttpContext.Session.SetString("Authenticated", true.ToString());
-
-                return View("~/Views/User/Overview.cshtml");
+                
+                return RedirectToAction("Overview", "User");
             }
             if (model.Username != null && model.Password != null)
             {

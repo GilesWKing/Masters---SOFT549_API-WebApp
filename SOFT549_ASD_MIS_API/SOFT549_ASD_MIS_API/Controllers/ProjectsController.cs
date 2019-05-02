@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SOFT549_ASD_MIS_API.Models;
 
@@ -25,6 +26,73 @@ namespace SOFT549_ASD_MIS_API.Controllers
         public IEnumerable<Project> GetProject()
         {
             return _context.Project;
+        }
+
+        // GET: api/Projects/Basic
+        [HttpGet("Basic")]
+        public IEnumerable<SelectListItem> GetProjectBasic()
+        {
+            var projects = _context.Project.Select(p => new SelectListItem() {
+                                                      Value = p.ProjectId.ToString(),
+                                                      Text = p.ProjectName
+                                                  });
+
+            return projects;
+        }
+
+        // GET: api/Projects/5/Overview
+        [HttpGet("{id}/Overview")]
+        public async Task<IActionResult> GetProjectOverview([FromRoute] int id)
+        {
+            //var project = _context.Project.Where(x => x.ProjectId == id).Select(x => new Project() { ProjectId = x.ProjectId }).FirstOrDefaultAsync();
+
+            //ProjectOverview result = null;
+
+            //var projects = _context.Project.Include(x => x.Client);
+            //foreach (var project2 in projects)
+            //{
+            //    foreach (var client in project2.Client)
+            //    {
+            //        result = new ProjectOverview() { PredictedLaunchDate = project2.PredictedLaunchDate }; 
+            //    }
+            //}
+
+            //Get project overview data from multiple tables and store data in project overview model
+            var project = await _context.Client
+
+            //Inner Join Projects to Clients
+            .Join(_context.Project, x => x.ClientId, y => y.ClientId,
+                    (x, y) => new { Client = x, Project = y })
+
+            //Left Join Activities (Optional) to Projects - Where Activity = Project management
+            .GroupJoin(_context.Activity, x => x.Project.ProjectId, y => y.ProjectId,
+                    (x, y) => new { x.Project, x.Client, Activity = y })
+            .SelectMany(x => x.Activity.Where(z => z.ActivityName == "Project management").DefaultIfEmpty(), (x, y) => new { x.Client, x.Project, Activity = y })
+                                               
+            //Left Join Staff (Optional) to Activities
+            .GroupJoin(_context.Staff, x => x.Activity.StaffId, y => y.StaffId,
+                    (x, y) => new { x.Project, x.Client, x.Activity, Staff = y })
+            .SelectMany(x => x.Staff.DefaultIfEmpty(), (x, y) => new { x.Client, x.Project, x.Activity, Staff = y })
+                                               
+            //Filter final results to match Project ID
+            .Where(x => x.Project.ProjectId == id)
+
+            //Select columns and assign to model
+            .Select(x => new ProjectOverview { ClientName = x.Client.ClientName,
+                                               PredictedLaunchDate = x.Project.PredictedLaunchDate,
+                                               PredictedCompletionDate = x.Project.PredictedCompletionDate,
+                                               PredictedCost = x.Project.PredictedCost,
+                                               ActualCost = x.Project.ActualCost,
+                                               StaffName = x.Staff.StaffName,
+                                               StaffContactDetails = x.Staff.ContactDetails
+                                            }).FirstOrDefaultAsync();
+
+            
+            //If result is null, no records found
+            if (project == null)
+                return NotFound();
+
+            return Ok(project);
         }
 
         // GET: api/Projects/5

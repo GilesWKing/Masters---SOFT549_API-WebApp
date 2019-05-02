@@ -13,7 +13,7 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Models
         public string Username { get; set; }
 
         [Required(ErrorMessage = "Password is required")]
-        [DataType(DataType.Password)]
+        //[DataType(DataType.Password)]
         public string Password { get; set; }
     }
 
