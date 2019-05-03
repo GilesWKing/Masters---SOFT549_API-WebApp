@@ -8,117 +8,121 @@
 
 <h4>Activity</h4>
 <hr />
-<div class="row">
-    <div class="col-lg-2">
-        <form asp-action="Edit"></form>
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <input type="hidden" asp-for="ActivityId" />
-        <div class="form-group">
+<form asp-action="Edit">
+    <div class="row">
+        <div class="col-lg-2">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ActivityId" />
+            <div class="form-group">
+                <fieldset>
+                    <div class="form-group">
+                        <label asp-for="ProjectId" class="control-label">Project</label>
+                        <select asp-for="ProjectId" class="form-control" asp-items="ViewBag.ProjectList"></select>
+                        <span asp-validation-for="ProjectId" class="text-danger"></span>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+        <div class="col-lg-3">
             <fieldset>
                 <div class="form-group">
-                    <label asp-for="ProjectId" class="control-label"></label>
-                    <select asp-for="ProjectId" class="form-control" asp-items="ViewBag.ProjectId"></select>
-                    <span asp-validation-for="ProjectId" class="text-danger"></span>
+                    <label asp-for="ActivityName" class="control-label">Activity Name</label>
+                    <input asp-for="ActivityName" class="form-control" />
+                    <span asp-validation-for="ActivityName" class="text-danger"></span>
+                </div>
+            </fieldset>
+        </div>
+        <div class="col-lg-2">
+            <fieldset>
+                <div class="form-group">
+                    <label asp-for="StaffId" class="control-label">Activity Owner</label>
+                    <select asp-for="StaffId" class="form-control" asp-items="ViewBag.StaffList"></select>
+                    <span asp-validation-for="StaffId" class="text-danger"></span>
+                </div>
+            </fieldset>
+        </div>
+        <div class="col-lg-2">
+            <fieldset>
+                <div class="form-group">
+                    <label asp-for="PredictedStartDate" class="control-label">Predicted Start Date</label>
+                    <input asp-for="PredictedStartDate" class="form-control" />
+                    <span asp-validation-for="PredictedStartDate" class="text-danger"></span>
+                </div>
+            </fieldset>
+        </div>
+        <div class="col-lg-2">
+            <fieldset>
+                <div class="form-group">
+                    <label asp-for="ActualStartDate" class="control-label">Actual Start Date</label>
+                    <input asp-for="ActualStartDate" class="form-control" />
+                    <span asp-validation-for="ActualStartDate" class="text-danger"></span>
                 </div>
             </fieldset>
         </div>
     </div>
-    <div class="col-lg-3">
-        <fieldset>
-            <div class="form-group">
-                <label asp-for="ActivityName" class="control-label"></label>
-                <input asp-for="ActivityName" class="form-control" />
-                <span asp-validation-for="ActivityName" class="text-danger"></span>
-            </div>
-        </fieldset>
-    </div>
-    <div class="col-lg-2">
-        <fieldset>
-            <div class="form-group">
-                <label asp-for="StaffId" class="control-label"></label>
-                <select asp-for="StaffId" class="form-control" asp-items="ViewBag.StaffId"></select>
-                <span asp-validation-for="StaffId" class="text-danger"></span>
-            </div>
-        </fieldset>
-    </div>
-    <div class="col-lg-2">
-        <fieldset>
-            <div class="form-group">
-                <label asp-for="PredictedStartDate" class="control-label"></label>
-                <input asp-for="PredictedStartDate" class="form-control" />
-                <span asp-validation-for="PredictedStartDate" class="text-danger"></span>
-            </div>
-        </fieldset>
-    </div>
-    <div class="col-lg-2">
-        <fieldset>
-            <div class="form-group">
-                <label asp-for="ActualStartDate" class="control-label"></label>
-                <input asp-for="ActualStartDate" class="form-control" />
-                <span asp-validation-for="ActualStartDate" class="text-danger"></span>
-            </div>
-        </fieldset>
-    </div>
-</div>
 
-<div class="row">
-    <div class="col-lg-2">
-        <fieldset>
-            <div class="form-group">
-                <label asp-for="PredictedCompletionDate" class="control-label"></label>
-                <input asp-for="PredictedCompletionDate" class="form-control" />
-                <span asp-validation-for="PredictedCompletionDate" class="text-danger"></span>
-            </div>
-        </fieldset>
+    <div class="row">
+        <div class="col-lg-2">
+            <fieldset>
+                <div class="form-group">
+                    <label asp-for="PredictedCompletionDate" class="control-label">Predicted Completion Date</label>
+                    <input asp-for="PredictedCompletionDate" class="form-control" />
+                    <span asp-validation-for="PredictedCompletionDate" class="text-danger"></span>
+                </div>
+            </fieldset>
+        </div>
+        <div class="col-lg-2">
+            <fieldset>
+                <div class="form-group">
+                    <label asp-for="ActualCompletionDate" class="control-label">Actual Completion Date</label>
+                    <input asp-for="ActualCompletionDate" class="form-control" />
+                    <span asp-validation-for="ActualCompletionDate" class="text-danger"></span>
+                </div>
+            </fieldset>
+        </div>
+        <div class="col-lg-1"></div>
+        <div class="col-lg-2">
+            <fieldset>
+                <div class="form-group">
+                    <label asp-for="PredictedCost" class="control-label">Predicted Cost</label>
+                    <input asp-for="PredictedCost" class="form-control" />
+                    <span asp-validation-for="PredictedCost" class="text-danger"></span>
+                </div>
+            </fieldset>
+        </div>
+        <div class="col-lg-2">
+            <fieldset>
+                <div class="form-group">
+                    <label asp-for="ActualCost" class="control-label">Actual Cost</label>
+                    <input asp-for="ActualCost" class="form-control" />
+                    <span asp-validation-for="ActualCost" class="text-danger"></span>
+                </div>
+            </fieldset>
+        </div>
+        <div class="col-lg-2">
+            <fieldset>
+                <div class="form-group">
+                    <label asp-for="ActivitySequence" class="control-label">Activity Sequence</label>
+                    <input asp-for="ActivitySequence" class="form-control" />
+                    <span asp-validation-for="ActivitySequence" class="text-danger"></span>
+                </div>
+            </fieldset>
+        </div>
     </div>
-    <div class="col-lg-2">
-        <fieldset>
-            <div class="form-group">
-                <label asp-for="ActualCompletionDate" class="control-label"></label>
-                <input asp-for="ActualCompletionDate" class="form-control" />
-                <span asp-validation-for="ActualCompletionDate" class="text-danger"></span>
-            </div>
-        </fieldset>
-    </div>
-    <div class="col-lg-1"></div>
-    <div class="col-lg-2">
-        <fieldset>
-            <div class="form-group">
-                <label asp-for="PredictedCost" class="control-label"></label>
-                <input asp-for="PredictedCost" class="form-control" />
-                <span asp-validation-for="PredictedCost" class="text-danger"></span>
-            </div>
-        </fieldset>
-    </div>
-    <div class="col-lg-2">
-        <fieldset>
-            <div class="form-group">
-                <label asp-for="ActualCost" class="control-label"></label>
-                <input asp-for="ActualCost" class="form-control" />
-                <span asp-validation-for="ActualCost" class="text-danger"></span>
-            </div>
-        </fieldset>
-    </div>
-    <div class="col-lg-2">
-        <fieldset>
-            <div class="form-group">
-                <label asp-for="ActivitySequence" class="control-label"></label>
-                <input asp-for="ActivitySequence" class="form-control" />
-                <span asp-validation-for="ActivitySequence" class="text-danger"></span>
-            </div>
-        </fieldset>
-    </div>
-</div>
-<row>
-    <div class="form-group">
-        <input type="submit" value="Save" class="btn btn-default" />
-    </div>
-</row>
-
+    <row>
+        <div class="form-group">
+            <input type="submit" value="Save" class="btn btn-info" />
+        </div>
+    </row>
+</form>
 <div>
     <a asp-action="Index">Back to List</a>
+
 </div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+<br />
+<br />

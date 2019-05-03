@@ -8,9 +8,10 @@
 
 <h4>Client</h4>
 <hr />
-<div class="row">
-    <div class="col-lg-4">
-        <form asp-action="Create"></form>
+<form asp-action="Create">
+    <div class="row">
+        <div class="col-lg-4">
+
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <fieldset>
@@ -19,9 +20,9 @@
                     <span asp-validation-for="ClientName" class="text-danger"></span>
                 </fieldset>
             </div>
-    </div>
+        </div>
 
-    <div class="col-lg-6">
+        <div class="col-lg-6">
             <div class="form-group">
                 <fieldset>
                     <label asp-for="ClientContact" class="control-label">Client contact info</label>
@@ -29,20 +30,22 @@
                     <span asp-validation-for="ClientContact" class="text-danger"></span>
                 </fieldset>
             </div>
-    </div>
+        </div>
         <div class="col-lg-2"></div>
-</div>
-
-<row>
-    <div class="form-group">
-        <input type="submit" value="Create" class="btn btn-success" />
     </div>
-</row>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+    <row>
+        <div class="form-group">
+            <input type="submit" value="Create" class="btn btn-success" />
+        </div>
+    </row>
 
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+</form>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+<br />
+<br />

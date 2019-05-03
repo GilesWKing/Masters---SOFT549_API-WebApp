@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace SOFT549_ASD_MIS_API.Models
+namespace SOFT549_ASD_MIS_DemoWebApp.Models
 {
-    public partial class Overview
+    public class Overview
     {
         public Overview()
         {
@@ -20,6 +21,5 @@ namespace SOFT549_ASD_MIS_API.Models
 
         public string StaffName { get; set; }
         public string ContactDetails { get; set; }
-
     }
 }

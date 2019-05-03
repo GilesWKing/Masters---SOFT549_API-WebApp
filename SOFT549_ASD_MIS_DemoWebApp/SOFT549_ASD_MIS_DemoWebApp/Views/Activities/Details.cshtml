@@ -3,7 +3,7 @@
 @{
     ViewData["Title"] = "Details";
 }
-<br/>
+<br />
 <h3>Details</h3>
 
 <div>
@@ -11,61 +11,61 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.ActivityName)
+            Activity Name
         </dt>
         <dd>
             @Html.DisplayFor(model => model.ActivityName)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.PredictedStartDate)
+            Predicted Start Date
         </dt>
         <dd>
             @Html.DisplayFor(model => model.PredictedStartDate)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.ActualStartDate)
+            Actual Start Date
         </dt>
         <dd>
             @Html.DisplayFor(model => model.ActualStartDate)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.PredictedCompletionDate)
+            Predicted Completion Date
         </dt>
         <dd>
             @Html.DisplayFor(model => model.PredictedCompletionDate)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.ActualCompletionDate)
+            Actual Completion Date
         </dt>
         <dd>
             @Html.DisplayFor(model => model.ActualCompletionDate)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.PredictedCost)
+            Predicted Cost
         </dt>
         <dd>
             @Html.DisplayFor(model => model.PredictedCost)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.ActualCost)
+            Actual Cost
         </dt>
         <dd>
             @Html.DisplayFor(model => model.ActualCost)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.ActivitySequence)
+            Activity Sequence
         </dt>
         <dd>
             @Html.DisplayFor(model => model.ActivitySequence)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Project)
+            Project Name
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Project.ProjectName)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Staff)
+            Staff Name
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Staff.StaffName)
@@ -76,3 +76,5 @@
     <a asp-action="Edit" asp-route-id="@Model.ActivityId">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>
+<br />
+<br />

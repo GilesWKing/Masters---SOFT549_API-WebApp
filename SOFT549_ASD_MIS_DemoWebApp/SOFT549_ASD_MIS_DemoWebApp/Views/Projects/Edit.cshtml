@@ -8,109 +8,112 @@
 
 <h4>Project</h4>
 <hr />
-<div class="row">
-    <div class="col-lg-2">
-        <form asp-action="Edit"></form>
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <input type="hidden" asp-for="ProjectId" />
-        <fieldset>
-            <div class="form-group">
-                <label asp-for="ClientId" class="control-label"></label>
-                <input asp-for="ClientId" class="form-control" />
-                <span asp-validation-for="ClientId" class="text-danger"></span>
-            </div>
-        </fieldset>
-    </div>
-    <div class="col-lg-3">
-        <div class="form-group">
+<form asp-action="Edit">
+    <div class="row">
+        <div class="col-lg-2">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ProjectId" />
             <fieldset>
-                <label asp-for="ProjectName" class="control-label"></label>
-                <input asp-for="ProjectName" class="form-control" />
-                <span asp-validation-for="ProjectName" class="text-danger"></span>
+                <div class="form-group">
+                    <label asp-for="ClientId" class="control-label"></label>
+                    <input asp-for="ClientId" class="form-control" />
+                    <span asp-validation-for="ClientId" class="text-danger"></span>
+                </div>
+            </fieldset>
+        </div>
+        <div class="col-lg-3">
+            <div class="form-group">
+                <fieldset>
+                    <label asp-for="ProjectName" class="control-label"></label>
+                    <input asp-for="ProjectName" class="form-control" />
+                    <span asp-validation-for="ProjectName" class="text-danger"></span>
+                </fieldset>
+            </div>
+        </div>
+        <div class="col-lg-2"></div>
+        <div class="col-lg-2">
+            <fieldset>
+                <div class="form-group">
+                    <label asp-for="PredictedLaunchDate" class="control-label"></label>
+                    <input asp-for="PredictedLaunchDate" class="form-control" />
+                    <span asp-validation-for="PredictedLaunchDate" class="text-danger"></span>
+                </div>
+            </fieldset>
+        </div>
+        <div class="col-lg-2">
+            <fieldset>
+                <div class="form-group">
+                    <label asp-for="ActualLaunchDate" class="control-label"></label>
+                    <input asp-for="ActualLaunchDate" class="form-control" />
+                    <span asp-validation-for="ActualLaunchDate" class="text-danger"></span>
+                </div>
             </fieldset>
         </div>
     </div>
-    <div class="col-lg-2"></div>
-    <div class="col-lg-2">
-        <fieldset>
-            <div class="form-group">
-                <label asp-for="PredictedLaunchDate" class="control-label"></label>
-                <input asp-for="PredictedLaunchDate" class="form-control" />
-                <span asp-validation-for="PredictedLaunchDate" class="text-danger"></span>
-            </div>
-        </fieldset>
-    </div>
-    <div class="col-lg-2">
-        <fieldset>
-            <div class="form-group">
-                <label asp-for="ActualLaunchDate" class="control-label"></label>
-                <input asp-for="ActualLaunchDate" class="form-control" />
-                <span asp-validation-for="ActualLaunchDate" class="text-danger"></span>
-            </div>
-        </fieldset>
-    </div>
-</div>
 
-<div class="row">
-    <div class="col-lg-2">
-        <fieldset>
-            <div class="form-group">
-                <label asp-for="PredictedCost" class="control-label"></label>
-                <input asp-for="PredictedCost" class="form-control" />
-                <span asp-validation-for="PredictedCost" class="text-danger"></span>
-            </div>
-        </fieldset>
+    <div class="row">
+        <div class="col-lg-2">
+            <fieldset>
+                <div class="form-group">
+                    <label asp-for="PredictedCost" class="control-label"></label>
+                    <input asp-for="PredictedCost" class="form-control" />
+                    <span asp-validation-for="PredictedCost" class="text-danger"></span>
+                </div>
+            </fieldset>
+        </div>
+        <div class="col-lg-2">
+            <fieldset>
+                <div class="form-group">
+                    <label asp-for="ActualCost" class="control-label"></label>
+                    <input asp-for="ActualCost" class="form-control" />
+                    <span asp-validation-for="ActualCost" class="text-danger"></span>
+                </div>
+            </fieldset>
+        </div>
+        <div class="col-lg-1"></div>
+        <div class="col-lg-2">
+            <fieldset>
+                <div class="form-group">
+                    <label asp-for="Price" class="control-label"></label>
+                    <input asp-for="Price" class="form-control" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+            </fieldset>
+        </div>
+        <div class="col-lg-2">
+            <fieldset>
+                <div class="form-group">
+                    <label asp-for="PredictedCompletionDate" class="control-label"></label>
+                    <input asp-for="PredictedCompletionDate" class="form-control" />
+                    <span asp-validation-for="PredictedCompletionDate" class="text-danger"></span>
+                </div>
+            </fieldset>
+        </div>
+        <div class="col-lg-2">
+            <fieldset>
+                <div class="form-group">
+                    <label asp-for="ActualCompletionDate" class="control-label"></label>
+                    <input asp-for="ActualCompletionDate" class="form-control" />
+                    <span asp-validation-for="ActualCompletionDate" class="text-danger"></span>
+                </div>
+            </fieldset>
+        </div>
     </div>
-    <div class="col-lg-2">
-        <fieldset>
-            <div class="form-group">
-                <label asp-for="ActualCost" class="control-label"></label>
-                <input asp-for="ActualCost" class="form-control" />
-                <span asp-validation-for="ActualCost" class="text-danger"></span>
-            </div>
-        </fieldset>
-    </div>
-    <div class="col-lg-1"></div>
-    <div class="col-lg-2">
-        <fieldset>
-            <div class="form-group">
-                <label asp-for="Price" class="control-label"></label>
-                <input asp-for="Price" class="form-control" />
-                <span asp-validation-for="Price" class="text-danger"></span>
-            </div>
-        </fieldset>
-    </div>
-    <div class="col-lg-2">
-        <fieldset>
-            <div class="form-group">
-                <label asp-for="PredictedCompletionDate" class="control-label"></label>
-                <input asp-for="PredictedCompletionDate" class="form-control" />
-                <span asp-validation-for="PredictedCompletionDate" class="text-danger"></span>
-            </div>
-        </fieldset>
-    </div>
-    <div class="col-lg-2">
-        <fieldset>
-            <div class="form-group">
-                <label asp-for="ActualCompletionDate" class="control-label"></label>
-                <input asp-for="ActualCompletionDate" class="form-control" />
-                <span asp-validation-for="ActualCompletionDate" class="text-danger"></span>
-            </div>
-        </fieldset>
-    </div>
-</div>
 
-<row>
-    <div class="form-group">
-        <input type="submit" value="Save" class="btn btn-default" />
-    </div>
-</row>
+    <row>
+        <div class="form-group">
+            <input type="submit" value="Save" class="btn btn-info" />
+        </div>
+    </row>
 
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+</form>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+<br />
+<br />

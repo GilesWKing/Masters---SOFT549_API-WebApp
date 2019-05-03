@@ -52,6 +52,27 @@ namespace SOFT549_ASD_MIS_API.Controllers
             return projectList;
         }
 
+        //Get: api/Projects/5/Overview
+        [HttpGet("{id}/Overview")]
+        public Overview GetProjectOverview([FromRoute] int id)
+        {
+            var overview = new Overview();
+
+            var projectsTable = _context.Project;
+            //for each row in projects Table
+            foreach (var projectRow in projectsTable)
+            {
+                //store this information
+                overview.ProjectId = projectRow.ProjectId;
+                overview.PredictedLaunchDate = projectRow.PredictedLaunchDate;
+                overview.PredictedCompletionDate = projectRow.PredictedCompletionDate;
+                overview.PredictedCost = projectRow.PredictedCost;
+                overview.ActualCost = projectRow.ActualCost;
+
+            }
+
+            return overview;
+        }
 
    
         // GET: api/Projects/5

@@ -16,21 +16,15 @@
                 <div class="form-group">
                     <label for="projectSelect">Project select</label>
                     <fieldset>
-                        @*<select class="form-control" id="projectSelect">
-                            <option>Select Project</option>
-                            @foreach (var item in Model)
-                            {
-                                <option>@item.ProjectName</option>
-
-                            }
-                        </select>*@
-                            @*@Html.DropDownList("Projects", new SelectList(Model),"Select Project", new { @class="form-control"})*@
-                            <select class="form-control" id="projectSelect">
-            <option>Database project 1</option>
-            <option>Database project 2</option>
-            <option>Database project 3</option>
-        </select>
-</fieldset>
+                        @*<label asp-for="ProjectId" class="control-label">Project</label>
+                        <select asp-for="ProjectId" class="form-control" asp-items="ViewBag.ProjectList"></select>
+                        <span asp-validation-for="ProjectId" class="text-danger"></span>*@
+                        <select class="form-control" id="projectSelect">
+                            <option>Database project 1</option>
+                            <option>Database project 2</option>
+                            <option>Database project 3</option>
+                        </select>
+                    </fieldset>
                 </div>
             </div>
 

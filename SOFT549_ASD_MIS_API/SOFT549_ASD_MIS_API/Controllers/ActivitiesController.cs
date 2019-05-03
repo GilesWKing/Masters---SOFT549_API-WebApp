@@ -36,7 +36,10 @@ namespace SOFT549_ASD_MIS_API.Controllers
             //    return BadRequest(ModelState);
             //}
 
-            var activity = await _context.Activity.Include(x => x.Project).FirstOrDefaultAsync(x => x.ActivityId == id);           //var activity = new Activity();
+            var activity = await _context.Activity.FindAsync(id);
+
+            #region This is a mess that should've worked but didn't.
+            //var activity = new Activity();
 
             ////projectsTable is all rows of project table
             //var activitiesTable = _context.Activity;
@@ -61,6 +64,7 @@ namespace SOFT549_ASD_MIS_API.Controllers
 
             //var staff = await _context.Staff.FindAsync(activity.StaffId);
             //activity.StaffName = staff.StaffName;
+            #endregion
 
             if (activity == null)
             {
@@ -119,11 +123,11 @@ namespace SOFT549_ASD_MIS_API.Controllers
             {
                 await _context.SaveChangesAsync();
             }
-            catch (DbUpdateException)
+            catch (DbUpdateException)           //basic validation should any database error occur.
             {
-                if (ActivityExists(activity.ActivityId))
+                if (ActivityExists(activity.ActivityId))        //if activity id already exists method at bottom of page.
                 {
-                    return new StatusCodeResult(StatusCodes.Status409Conflict);
+                    return new StatusCodeResult(StatusCodes.Status409Conflict);     //return error.
                 }
                 else
                 {
@@ -155,6 +159,7 @@ namespace SOFT549_ASD_MIS_API.Controllers
             return Ok(activity);
         }
 
+        //looking if id in table is equal to id sending in post method.
         private bool ActivityExists(int id)
         {
             return _context.Activity.Any(e => e.ActivityId == id);

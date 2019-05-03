@@ -45,6 +45,86 @@
 
 /* Custom CSS Code */
 
+@media only screen and (max-width: 800px) {
+
+    #flip-scroll .cf:after {
+        visibility: hidden;
+        display: block;
+        font-size: 0;
+        content: " ";
+        clear: both;
+        height: 0;
+    }
+
+    #flip-scroll * html .cf {
+        zoom: 1;
+    }
+
+    #flip-scroll *:first-child + html .cf {
+        zoom: 1;
+    }
+
+    #flip-scroll table {
+        width: 100%;
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+
+    #flip-scroll th,
+    #flip-scroll td {
+        margin: 0;
+        vertical-align: top;
+    }
+
+    #flip-scroll th {
+        text-align: left;
+        font-size: 8px;
+    }
+
+    #flip-scroll table {
+        display: block;
+        position: relative;
+        width: 100%;
+    }
+
+    #flip-scroll thead {
+        display: block;
+        float: left;
+        text-align: left;
+    }
+
+    #flip-scroll tbody {
+        display: block;
+        width: auto;
+        position: relative;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    #flip-scroll thead tr {
+        display: block;
+    }
+
+    #flip-scroll th {
+        display: block;
+        text-align: left;
+        width: 150px;
+        height: 50px;
+    }
+
+    #flip-scroll tbody tr {
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    #flip-scroll td {
+        display: block;
+        text-align: left;
+        font-size: 9px;
+        height: 51px;
+    }
+}
+
 .body-content {
     padding-left: 15px;
     padding-right: 15px;

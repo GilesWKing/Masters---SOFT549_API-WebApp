@@ -1,89 +1,94 @@
 ﻿@model IEnumerable<SOFT549_ASD_MIS_DemoWebApp.Models.Assignment>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Tasks";
 }
 <br/>
-<h3>Index</h3>
+<h3>Tasks List</h3>
 
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table table-hover table-responsive">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.TaskName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PredictedStartDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ActualStartDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PredictedCompletionDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ActualCompletionDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PredictedCost)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ActualCost)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TaskSequence)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Activity)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Staff)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.TaskName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PredictedStartDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ActualStartDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PredictedCompletionDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ActualCompletionDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PredictedCost)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ActualCost)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TaskSequence)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Activity.ActivityName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Staff.Organisation)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.TaskId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.TaskId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.TaskId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div id="flip-scroll">
+    <table class="table table-hover table-responsive">
+        <thead>
+            <tr>
+                <th>
+                    Task Name
+                </th>
+                <th>
+                    Predicted Start Date
+                </th>
+                <th>
+                    Actual Start Date
+                </th>
+                <th>
+                    Predicted Completion Date
+                </th>
+                <th>
+                    Actual Completion Date
+                </th>
+                <th>
+                    Predicted Cost
+                </th>
+                <th>
+                    Actual Cost
+                </th>
+                <th>
+                    Task Sequence
+                </th>
+                <th>
+                    Linked to Activity
+                </th>
+                <th>
+                    Task Owner
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TaskName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PredictedStartDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ActualStartDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PredictedCompletionDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ActualCompletionDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PredictedCost)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ActualCost)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TaskSequence)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Activity.ActivityName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Staff.StaffName)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.TaskId">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.TaskId">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.TaskId">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<br />
+<br />

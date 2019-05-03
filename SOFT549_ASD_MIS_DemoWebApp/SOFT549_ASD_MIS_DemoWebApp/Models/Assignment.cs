@@ -31,5 +31,6 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Models
 
         public Activity Activity { get; set; }
         public Staff Staff { get; set; }
+
     }
 }

@@ -3,14 +3,14 @@
 @{
     ViewData["Title"] = "Edit";
 }
-<br/>
+<br />
 <h3>Edit</h3>
 
 <h4>Role</h4>
 <hr />
-<div class="row">
-    <div class="col-lg-4">
-        <form asp-action="Edit"></form>
+<form asp-action="Edit">
+    <div class="row">
+        <div class="col-lg-4">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="RoleId" />
             <div class="form-group">
@@ -20,30 +20,32 @@
                     <span asp-validation-for="RoleName" class="text-danger"></span>
                 </fieldset>
             </div>
-    </div>
+        </div>
 
-    <div class="col-lg-4">
-        <div class="form-group">
-            <fieldset>
-                <label asp-for="CostPerHour" class="control-label"></label>
-                <input asp-for="CostPerHour" class="form-control" />
-                <span asp-validation-for="CostPerHour" class="text-danger"></span>
-            </fieldset>
+        <div class="col-lg-4">
+            <div class="form-group">
+                <fieldset>
+                    <label asp-for="CostPerHour" class="control-label"></label>
+                    <input asp-for="CostPerHour" class="form-control" />
+                    <span asp-validation-for="CostPerHour" class="text-danger"></span>
+                </fieldset>
+            </div>
         </div>
     </div>
-</div>
 
-<row>
-    <div class="form-group">
-        <input type="submit" value="Save" class="btn btn-default" />
+    <row>
+        <div class="form-group">
+            <input type="submit" value="Save" class="btn btn-info" />
+        </div>
+    </row>
+
+
+    <div>
+        <a asp-action="Index">Back to List</a>
     </div>
-</row>
-
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
+</form>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+<br />
+<br />

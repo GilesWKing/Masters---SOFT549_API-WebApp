@@ -12,22 +12,24 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.ClientName)
+            Client Name
         </dt>
         <dd>
             @Html.DisplayFor(model => model.ClientName)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.ClientContact)
+            Client Contact Details
         </dt>
         <dd>
             @Html.DisplayFor(model => model.ClientContact)
         </dd>
     </dl>
-    
+
     <form asp-action="Delete">
         <input type="hidden" asp-for="ClientId" />
-        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
         <a asp-action="Index">Back to List</a>
     </form>
 </div>
+<br />
+<br />

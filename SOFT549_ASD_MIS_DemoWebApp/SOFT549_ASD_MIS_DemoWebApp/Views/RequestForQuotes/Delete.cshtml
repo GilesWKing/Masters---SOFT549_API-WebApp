@@ -12,75 +12,77 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.QuoteId)
+            Quote ID
         </dt>
         <dd>
             @Html.DisplayFor(model => model.QuoteId)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.ClientName)
+            Client Name
         </dt>
         <dd>
             @Html.DisplayFor(model => model.ClientName)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.ClientPhone)
+            Client Phone Number
         </dt>
         <dd>
             @Html.DisplayFor(model => model.ClientPhone)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.ClientEmail)
+            Client Email Address
         </dt>
         <dd>
             @Html.DisplayFor(model => model.ClientEmail)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.ClientRep)
+            Client Representative
         </dt>
         <dd>
             @Html.DisplayFor(model => model.ClientRep)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.ClientRepContact)
+            Client Rep Contact
         </dt>
         <dd>
             @Html.DisplayFor(model => model.ClientRepContact)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.ProjectName)
+            Project Name
         </dt>
         <dd>
             @Html.DisplayFor(model => model.ProjectName)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.ProjectManager)
+            Project Manager
         </dt>
         <dd>
             @Html.DisplayFor(model => model.ProjectManager)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.PredStartDate)
+            Predicted Start Date
         </dt>
         <dd>
             @Html.DisplayFor(model => model.PredStartDate)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.PredCompletionDate)
+            Predicted Completion Date
         </dt>
         <dd>
             @Html.DisplayFor(model => model.PredCompletionDate)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.ProjectDescription)
+            Project Description
         </dt>
         <dd>
             @Html.DisplayFor(model => model.ProjectDescription)
         </dd>
     </dl>
-    
+
     <form asp-action="Delete">
-        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
         <a asp-action="Index">Back to List</a>
     </form>
 </div>
+<br />
+<br />

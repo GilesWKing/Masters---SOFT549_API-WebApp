@@ -18,6 +18,13 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
             _context = context;
         }
 
+        /// <summary>
+        /// In the GilesContext.cs, there are four separate methods to call the database.
+        /// These are each Get, Post, Put and Delete.
+        /// Within each controller, the API is called to retrieve and send the data from relevant models.
+        /// The methods below concatenate a string to either Get or Post.
+        /// Much of this code has been edited from the standard MVC Template code that is generated.
+        /// </summary>
 
         // GET: Projects
         public async Task<IActionResult> Index()
@@ -49,7 +56,6 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Controllers
         }
 
         // POST: Projects/Create
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ProjectId,ClientId,ProjectName,PredictedLaunchDate,ActualLaunchDate,PredictedCompletionDate,ActualCompletionDate,PredictedCost,ActualCost,Price")] Project project)

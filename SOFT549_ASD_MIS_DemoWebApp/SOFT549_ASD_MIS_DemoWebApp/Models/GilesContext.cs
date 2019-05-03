@@ -16,9 +16,9 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Models
 
         // Variables specified and used in the functions below.
 
-        private HttpClient _httpClient;
+        private HttpClient _httpClient;             //How to send data HTTP Requests and Responses
         private Uri _apiBaseURL;                    //API URL found below in base(options)
-        public bool authenticated {private set; get;}
+
 
         #endregion
 
@@ -28,18 +28,9 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Models
         {
             _httpClient = new HttpClient();
             _apiBaseURL = new Uri("https://localhost:44318/api/");       //Change API URL when API is uploaded to server or when port changes.
-            authenticated = false;                                       //Sets authentication to false at start of running program.
+
         }
 
-        public void Login()
-        {
-            authenticated = true;
-        }
-
-        public void Logout()
-        {
-            authenticated = false;
-        }
 
         #endregion
 
@@ -68,16 +59,6 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Models
             return bob;
         }
 
-
-        // A method to add headers for security/validation.
-
-        private void AddHeaders()
-        {
-            //_httpClient.DefaultRequestHeaders.Remove("apiKey");
-            //_httpClient.DefaultRequestHeaders.Add("apiKey", "gobbledygook!");
-        }
-
-
         private static JsonSerializerSettings MicrosoftDateFormatSettings
         {
             get
@@ -95,8 +76,6 @@ namespace SOFT549_ASD_MIS_DemoWebApp.Models
         private Uri StartApiCall(string apiCommand)
         {
             Uri requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture, apiCommand));
-
-            AddHeaders();
 
             return requestUrl;
         }

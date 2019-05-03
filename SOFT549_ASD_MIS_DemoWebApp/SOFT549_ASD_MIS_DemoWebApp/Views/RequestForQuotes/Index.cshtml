@@ -1,89 +1,94 @@
 ﻿@model IEnumerable<SOFT549_ASD_MIS_DemoWebApp.Models.RequestForQuote>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "RFQ's";
 }
 <br/>
-<h3>Index</h3>
+<h3>Request For Quote System</h3>
 
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table table-hover table-responsive">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.ClientName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ClientPhone)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ClientEmail)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ClientRep)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ClientRepContact)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ProjectName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ProjectManager)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PredStartDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PredCompletionDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PredictedCost)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ClientName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ClientPhone)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ClientEmail)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ClientRep)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ClientRepContact)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProjectName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProjectManager)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PredStartDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PredCompletionDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PredictedCost)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.QuoteId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.QuoteId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.QuoteId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div id="flip-scroll">
+    <table class="table table-hover table-responsive-lg">
+        <thead>
+            <tr>
+                <th>
+                    Client Name
+                </th>
+                <th>
+                    Client Phone
+                </th>
+                <th>
+                    Client Email Address
+                </th>
+                <th>
+                    Client Representative
+                </th>
+                <th>
+                    Client Rep contact
+                </th>
+                <th>
+                    Project Name
+                </th>
+                <th>
+                    Project Manager
+                </th>
+                <th>
+                    Predicted Start Date
+                </th>
+                <th>
+                    Predicted Completion Date
+                </th>
+                <th>
+                    Predicted Cost
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ClientName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ClientPhone)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ClientEmail)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ClientRep)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ClientRepContact)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProjectName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProjectManager)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PredStartDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PredCompletionDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PredictedCost)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.QuoteId">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.QuoteId">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.QuoteId">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<br/>
+<br/>

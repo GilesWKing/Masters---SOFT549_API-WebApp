@@ -8,39 +8,42 @@
 
 <h4>Client</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit"></form>
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <input type="hidden" asp-for="ClientId" />
-        <div class="form-group">
-            <fieldset>
-                <label asp-for="ClientName" class="control-label"></label>
-                <input asp-for="ClientName" class="form-control" />
-                <span asp-validation-for="ClientName" class="text-danger"></span>
-            </fieldset>
+<form asp-action="Edit">
+    <div class="row">
+        <div class="col-md-4">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ClientId" />
+            <div class="form-group">
+                <fieldset>
+                    <label asp-for="ClientName" class="control-label"></label>
+                    <input asp-for="ClientName" class="form-control" />
+                    <span asp-validation-for="ClientName" class="text-danger"></span>
+                </fieldset>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <fieldset>
+                    <label asp-for="ClientContact" class="control-label"></label>
+                    <input asp-for="ClientContact" class="form-control" />
+                    <span asp-validation-for="ClientContact" class="text-danger"></span>
+                </fieldset>
+            </div>
         </div>
     </div>
-    <div class="col-md-4">
-        <div class="form-group">
-            <fieldset>
-                <label asp-for="ClientContact" class="control-label"></label>
-                <input asp-for="ClientContact" class="form-control" />
-                <span asp-validation-for="ClientContact" class="text-danger"></span>
-            </fieldset>
-        </div>
-    </div>
-</div>
     <row>
         <div class="form-group">
-            <input type="submit" value="Save" class="btn btn-default" />
+            <input type="submit" value="Save" class="btn btn-info" />
         </div>
     </row>
-    
+
     <div>
         <a asp-action="Index">Back to List</a>
     </div>
-
-    @section Scripts {
-        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    }
+</form>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+<br />
+<br />

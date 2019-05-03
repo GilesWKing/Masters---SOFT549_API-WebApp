@@ -1,41 +1,46 @@
 ﻿@model IEnumerable<SOFT549_ASD_MIS_DemoWebApp.Models.Role>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Job Titles";
 }
 <br/>
-<h3>Index</h3>
+<h3>Job Titles</h3>
 
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table table-hover table-responsive">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.RoleName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CostPerHour)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.RoleName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CostPerHour)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.RoleId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.RoleId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.RoleId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div id="flip-scroll">
+    <table class="table table-hover table-responsive">
+        <thead>
+            <tr>
+                <th>
+                    Job Title
+                </th>
+                <th>
+                    Cost per hour (£)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RoleName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CostPerHour)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.RoleId">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.RoleId">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.RoleId">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<br />
+<br />
